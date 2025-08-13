@@ -1,0 +1,50 @@
+---
+import Section from "../components/Section.astro";
+import AlertIcon from "../assets/icons/interface-essential-alert-circle-1.svg";
+import CodingIcon from "../assets/icons/coding-apps-websites-programming-browser.svg";
+import RobotIcon from "../assets/icons/technology-robot-ai-signal-1.svg";
+const data = [
+  {
+    icon: AlertIcon,
+    title: "Use it!",
+    description:
+      "We look forward to developers and researchers using the tool and sharing their feedback",
+  },
+  {
+    icon: CodingIcon,
+    title: "Contribute!",
+    description:
+      "We look forward to developers contributing to CodeCarbon development <3<3<3",
+  },
+  {
+    icon: RobotIcon,
+    title: "Spread the love!",
+    description:
+      "Spread the word about CodeCarbon among your colleagues, peers, conferences, and developer forums",
+  },
+];
+---
+
+<Section id="call-to-action" invert>
+  <div class="flex items-center justify-center gap-4">
+    <AlertIcon />
+    <h1 class="text-4xl font-bold uppercase">Call to Action</h1>
+    <AlertIcon />
+  </div>
+  <h1 class="text-3xl font-bold uppercase p-4">
+    Use, contribute and spread the word!
+  </h1>
+  <div class="justify-between flex flex-row min-w-3xl gap-4">
+    {
+      data.map((item) => (
+        <div class="flex flex-col gap-4">
+          <item.icon class="size-40 mx-auto" />
+          <h2 class="text-3xl font-bold text-center uppercase">{item.title}</h2>
+          <p class="prose text-black max-w-[400px] text-center">
+            {item.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Section>

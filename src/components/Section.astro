@@ -1,9 +1,10 @@
 ---
-const { id } = Astro.props;
+const { id, invert } = Astro.props;
+// invert is used to select if the section is with white text or black text
 ---
 
 <div
-  class="flex flex-col items-center justify-center gap-2 text-white p-8"
+  class=`flex flex-col items-center justify-center gap-2 ${invert ? "bg-lime-300 text-black" : "text-white "}  p-20 w-screen`
   id={id}
 >
   <slot />

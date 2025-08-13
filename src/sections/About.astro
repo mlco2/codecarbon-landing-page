@@ -1,24 +1,65 @@
 ---
 import Section from "../components/Section.astro";
+import ComputerOldElectronicsIcon from "../assets/icons/computer-old-electronics.svg";
+import HandsCrossedIcon from "../assets/icons/hand-cross-finger-heart.svg";
+import UIDesignWebsiteIcon from "../assets/icons/ui-design-website.svg";
+import ContentFilesNewspaperIcon from "../assets/icons/content-files-newspaper.svg";
+import ContentFilesQuillInkIcon from "../assets/icons/content-files-quill-ink.svg";
+import Button from "../components/Button.astro";
 const data = [
-  { icon: "📦", text: "A lightweight, easy to use python library" },
-  { icon: "🌍", text: "Open source, free & community driven" },
-  { icon: "📊", text: "Effective visual outputs" },
+  {
+    icon: ComputerOldElectronicsIcon,
+    text: "A lightweight, easy to use python library",
+  },
+  { icon: HandsCrossedIcon, text: "Open source, free & community driven" },
+  { icon: UIDesignWebsiteIcon, text: "Effective visual outputs" },
 ];
 ---
 
 <Section id="about">
   <h1 class="text-3xl font-bold text-white">What we are</h1>
-  <div class="flex flex-row">
-    <ul class="flex flex-row
-    items-center justify-between p-4">
+  <div class="flex flex-row pb-8">
+    <ul
+      class="flex flex-row
+    items-center justify-between p-4 min-w-7xl gap-6"
+    >
       {
         data.map((item) => (
-          <li class="prose text-white max-w-xs p-2 text-center">
-            {item.icon} {item.text}
+          <li class="flex items-center">
+            <item.icon />
+            <span class="prose text-white w-3xs text-center">{item.text}</span>
           </li>
         ))
       }
     </ul>
+  </div>
+  <div>TODO: Add animation panel here with codecarbon reviews by people</div>
+  <h1 class="text-3xl font-bold text-white pt-8">Seamless integration</h1>
+  <p>TODO: ADD VIDEO HERE...</p>
+  <h1 class="text-3xl font-bold text-white pb-8">Only a few lines of code</h1>
+
+  <div class="flex flex-row">
+    <div class="flex flex-col justify-center gap-4 pt-8 w-1/2">
+      <h2 class="text-2xl font-bold text-lime-300 uppercase text-left">
+        Computer emits co2. we started measuring how much
+      </h2>
+      <p class="prose text-white">
+        A single datacenter can consume large amounts of energy to run computing
+        code. An innovative new tracking tool is designed to measure the climate
+        impact of artificial intelligence. Kana Lottick, Silvia Susai, Sorelle
+        Friedler, and Jonathan Wilson. Energy Usage Reports: Environmental
+        awareness as part of algorithmic accountability. NeurlPS Workshop on
+        Tackling Climate Change with Machine Learning, 2019.
+      </p>
+      <Button href="http://arxiv.org/abs/1911.08354">Go to article</Button>
+    </div>
+    <div class="flex flex-col justify-center w-1/2 px-8">
+      <div class="flex justify-start w-full">
+        <ContentFilesNewspaperIcon class="size-48" />
+      </div>
+      <div class="flex justify-end w-full">
+        <ContentFilesQuillInkIcon class="size-48" />
+      </div>
+    </div>
   </div>
 </Section>

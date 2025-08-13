@@ -1,11 +1,12 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import Button from "./Button.astro";
 const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
 const sections = [
   { title: "About", href: "/#about" },
   { title: "How it works", href: "/#how-it-works" },
-  { title: "Call for action", href: "/#call-for-action" },
+  { title: "Call to action", href: "/#call-to-action" },
   { title: "Team", href: "/#team" },
   { title: "Contact us", href: "/#contact-us" },
 ];
@@ -32,3 +33,4 @@ const sections = [
   </nav>
   <hr class="border-lime-300 border-2" />
 </div>
+<ClientRouter />

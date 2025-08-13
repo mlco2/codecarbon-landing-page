@@ -1,5 +1,47 @@
 ---
 import Section from "../components/Section.astro";
+import CloundDownloadIcon from "../assets/icons/interface-essential-clound-download.svg";
+import FlashIcon from "../assets/icons/interface-essential-flash.svg";
+import StopwatchIcon from "../assets/icons/interface-essential-stopwatch.svg";
+import BarsIcon from "../assets/icons/business-products-data-file-bars.svg";
+
+const data = [
+  {
+    title: "1",
+    description: "Download package",
+    icon: CloundDownloadIcon,
+  },
+  {
+    title: "2",
+    description: "Embed the code",
+    icon: FlashIcon,
+  },
+  {
+    title: "3",
+    description: "Run and track",
+    icon: StopwatchIcon,
+  },
+  {
+    title: "4",
+    description: "Visualize results",
+    icon: BarsIcon,
+  },
+];
 ---
 
-<Section id="how-it-works">How It Works</Section>
+<Section id="how-it-works" invert>
+  <h1 class="text-3xl font-bold p-4 uppercase">How It Works</h1>
+  <div class="justify-between flex flex-row min-w-3xl">
+    {
+      data.map((item) => (
+        <div class="flex flex-col">
+          <div class="bg-black rounded-full size-40 flex items-center justify-center">
+            <item.icon class="size-23 mx-auto" />
+          </div>
+          <h2 class="text-xl font-bold text-center">{item.title}</h2>
+          <p class="prose text-black uppercase font-bold">{item.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>

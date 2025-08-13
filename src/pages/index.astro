@@ -3,19 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import About from "../sections/About.astro";
 import Welcome from "../sections/Welcome.astro";
 import HowItWorks from "../sections/HowItWorks.astro";
-import CallForAction from "../sections/CallForAction.astro";
+import CallToAction from "../sections/CallToAction.astro";
 import Team from "../sections/Team.astro";
 import ContactUs from "../sections/ContactUs.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Dashboard from "../sections/Dashboard.astro";
 ---
 
 <Layout>
   <Welcome />
   <About />
-  <HowItWorks id="how-it-works" />
-  <CallForAction id="call-for-action" />
-  <Team id="team" />
-  <ContactUs id="contact-us" />
+  <HowItWorks />
+  <Dashboard />
+  <CallToAction />
+  <Team />
+  <ContactUs />
 </Layout>
