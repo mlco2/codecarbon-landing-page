@@ -1,0 +1,35 @@
+---
+import Section from "../components/Section.astro";
+import RocketIcon from "../assets/icons/business-product-startup-1.svg";
+// Load all the partner organization logos
+import { founders as partnerLogos } from "../assets/partners/partners.js";
+import { sponsors as sponsorLogos } from "../assets/partners/partners.js";
+---
+
+<Section id="sponsors">
+  <div class="flex flex-col items-center -mt-20">
+    <h1 class="text-3xl font-bold text-white uppercase max-w-3xl">
+      CodeCarbon is supported by our sponsors
+    </h1>
+    <div class="flex flex-wrap justify-between mt-4">
+      {
+        sponsorLogos.map((logo) => (
+          <img src={logo.svg_path} alt={logo.name} class="w-40 m-2" />
+        ))
+      }
+    </div>
+    <h1 class="text-2xl font-bold text-white uppercase max-w-3xl mt-15">
+      CodeCarbon was developed by four partner organizations and is made freely
+      available to the community
+    </h1>
+    <div class="flex flex-wrap justify-center mt-4">
+      {
+        partnerLogos.map((logo) => (
+          <img src={logo.svg_path} alt={logo.name} class="w-32  m-2" />
+        ))
+      }
+    </div>
+    <p>TODO: Add former contributors from those associations</p>
+    <RocketIcon class="pt-8" />
+  </div>
+</Section>

@@ -3,12 +3,13 @@ import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import Button from "./Button.astro";
 const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
+const GITHUB_CODECARBON_URL = "https://github.com/mlco2/codecarbon";
 const sections = [
   { title: "About", href: "/#about" },
   { title: "How it works", href: "/#how-it-works" },
   { title: "Call to action", href: "/#call-to-action" },
   { title: "Team", href: "/#team" },
-  { title: "Contact us", href: "/#contact-us" },
+  { title: "Contact us", href: GITHUB_CODECARBON_URL },
 ];
 ---
 
@@ -29,7 +30,6 @@ const sections = [
     <div>
       <Button href={DASHBOARD_API_URL}>Sign in</Button>
     </div>
-    <!-- Add a thick separator line -->
   </nav>
   <hr class="border-lime-300 border-2" />
 </div>

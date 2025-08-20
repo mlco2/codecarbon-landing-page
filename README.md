@@ -18,3 +18,9 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Built using Astro
 
 Feel free to check [Astro documentation](https://docs.astro.build).
+
+## Stack
+
+- [Astro](https://astro.build)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Vite](https://vitejs.dev)

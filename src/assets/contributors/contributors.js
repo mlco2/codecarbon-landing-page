@@ -7,7 +7,7 @@ Copy/paste the example, and replace with your own information.
         name: "Your_data_here",
         job : "Your_data_here",
         Organisation: "Your_data_here",
-        img_path: "./assets/contributors/img/victor.jpeg"
+        img_path: "./assets/contributors/img/someone.jpeg"
     },
 */
 

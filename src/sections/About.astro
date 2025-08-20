@@ -6,6 +6,7 @@ import UIDesignWebsiteIcon from "../assets/icons/ui-design-website.svg";
 import ContentFilesNewspaperIcon from "../assets/icons/content-files-newspaper.svg";
 import ContentFilesQuillInkIcon from "../assets/icons/content-files-quill-ink.svg";
 import Button from "../components/Button.astro";
+import Reviews from "../components/Reviews.astro";
 const data = [
   {
     icon: ComputerOldElectronicsIcon,
@@ -33,10 +34,15 @@ const data = [
       }
     </ul>
   </div>
-  <div>TODO: Add animation panel here with codecarbon reviews by people</div>
-  <h1 class="text-3xl font-bold text-white pt-8">Seamless integration</h1>
-  <p>TODO: ADD VIDEO HERE...</p>
-  <h1 class="text-3xl font-bold text-white pb-8">Only a few lines of code</h1>
+  <Reviews />
+  <h1 class="text-3xl font-bold text-white p-8">Seamless integration</h1>
+  <video
+    poster="./assets/first-frame.jpg"
+    class="pt-8 w-full max-w-3xl mx-auto border-3 border-lime-300 rounded-lg"
+    controls
+    src="https://player.vimeo.com/external/482564729.hd.mp4?s=70d4f409870b0af74fa5e61d0d17bfe34a4d4282&profile_id=175"
+  ></video>
+  <h1 class="text-3xl font-bold text-white p-8">Only a few lines of code</h1>
 
   <div class="flex flex-row">
     <div class="flex flex-col justify-center gap-4 pt-8 w-1/2">

@@ -1,6 +1,22 @@
 ---
 import Section from "../components/Section.astro";
 import DotCrossIcon from "../assets/icons/Dot-cross.svg";
+const data = [
+  {
+    img_path: "/assets/dashboard/device_emissions.png",
+    description:
+      "Emissions for individual code repositories based on infraestructure and power consumption.",
+  },
+  {
+    img_path: "/assets/dashboard/exemplary_equivalents.png",
+    description: "Exemplary equivalents to put emissions in context.",
+  },
+  {
+    img_path: "/assets/dashboard/region_recommendations.png",
+    description:
+      "Recommends compute regions with lower carbon intensity for major cloud providers – AWS, Azure, and GCP.",
+  },
+];
 ---
 
 <Section id="dashboard">
@@ -12,5 +28,18 @@ import DotCrossIcon from "../assets/icons/Dot-cross.svg";
   <h1 class="text-3xl font-bold uppercase p-4">
     Visualizing the outputs & insights
   </h1>
-  <p class="prose text-white">TODO: Add screenshot of the dashboard here</p>
+  {
+    data.map((item, i) => (
+      <div
+        key={item.img_path}
+        class={`flex items-center gap-4 p-4${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
+      >
+        <img src={item.img_path} alt="" class="w-150 rounded-lg" />
+        <p class="prose text-white text-lg">{item.description}</p>
+      </div>
+    ))
+  }
+  <p class="prose text-white">
+    TODO: Update screenshots using the new dashboard here
+  </p>
 </Section>

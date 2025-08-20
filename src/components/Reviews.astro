@@ -1,0 +1,83 @@
+---
+import ArrowRightIcon from "../assets/icons/Arrow-right.svg";
+import ArrowLeftIcon from "../assets/icons/Arrow-left.svg";
+---
+
+<div class="flex flex-row items-center justify-center gap-4 p-15">
+  <button id="arrow-left" type="button" aria-label="Previous review" class="">
+    <ArrowLeftIcon
+      class="text-gray-400 hover:text-lime-400 transition-colors duration-200"
+    />
+  </button>
+  <div
+    class="flex flex-col p-4 border-2 border-t-1 border-l-1 border-gray-500 w-4xl items-center justify-center"
+  >
+    <img
+      id="review-image"
+      src="./assets/reviews/card1.jpg"
+      class="rounded-lg w-3xl"
+      alt="Review 1"
+    />
+    <div
+      class="flex flex-row border-t-2 border-gray-500 p-4 mt-4 w-full justify-between items-center"
+    >
+      <div
+        id="review-pagination"
+        class="flex flex-row gap-2 justify-center w-full"
+      >
+      </div>
+    </div>
+  </div>
+  <button id="arrow-right" type="button" aria-label="Next review">
+    <ArrowRightIcon
+      class="text-gray-400 hover:text-lime-400 transition-colors duration-200"
+    />
+  </button>
+</div>
+
+<!-- We are doing a review carousel. This is a vanilla js implementation of it, if in the future we need more complex behaviour, we can do a react version. See Astro islands for more info: https://astro.build/en/core-concepts/astro-islands/ -->
+<script>
+  const pagination = document.getElementById("review-pagination");
+  const images = [
+    "./assets/reviews/card1.jpg",
+    "./assets/reviews/card2.jpg",
+    "./assets/reviews/card3.jpg",
+    "./assets/reviews/card4.jpg",
+    "./assets/reviews/card5.jpg",
+    "./assets/reviews/card6.jpg",
+    // Add more image paths as needed
+  ];
+
+  function renderPagination() {
+    pagination.innerHTML = "";
+    images.forEach((_, i) => {
+      const circle = document.createElement("span");
+      circle.className =
+        "inline-block w-3 h-3 rounded-full transition-colors duration-200 " +
+        (i === index ? "bg-lime-400" : "bg-gray-400");
+      pagination.appendChild(circle);
+    });
+  }
+
+  let index = 0;
+  // Initial render
+  renderPagination();
+
+  const img = document.getElementById("review-image");
+  const left = document.getElementById("arrow-left");
+  const right = document.getElementById("arrow-right");
+
+  left?.addEventListener("click", () => {
+    index = index === 0 ? images.length - 1 : index - 1;
+    img.src = images[index];
+    img.alt = `Review ${index + 1}`;
+    renderPagination();
+  });
+
+  right.addEventListener("click", () => {
+    index = index === images.length - 1 ? 0 : index + 1;
+    img.src = images[index];
+    img.alt = `Review ${index + 1}`;
+    renderPagination();
+  });
+</script>
