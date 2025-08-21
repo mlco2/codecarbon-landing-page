@@ -31,7 +31,6 @@ const data = [
   {
     data.map((item, i) => (
       <div
-        key={item.img_path}
         class={`flex items-center gap-4 p-4${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
       >
         <img src={item.img_path} alt="" class="w-150 rounded-lg" />
@@ -39,7 +38,5 @@ const data = [
       </div>
     ))
   }
-  <p class="prose text-white">
-    TODO: Update screenshots using the new dashboard here
-  </p>
+  <!--TODO: Update screenshots using the new dashboard here-->
 </Section>

@@ -2,8 +2,8 @@
 import Section from "../components/Section.astro";
 import RocketIcon from "../assets/icons/business-product-startup-1.svg";
 // Load all the partner organization logos
-import { founders as partnerLogos } from "../assets/partners/partners.js";
-import { sponsors as sponsorLogos } from "../assets/partners/partners.js";
+import { founders as partnerLogos } from "../content/partners";
+import { sponsors as sponsorLogos } from "../content/partners";
 ---
 
 <Section id="sponsors">
@@ -29,7 +29,6 @@ import { sponsors as sponsorLogos } from "../assets/partners/partners.js";
         ))
       }
     </div>
-    <p>TODO: Add former contributors from those associations</p>
     <RocketIcon class="pt-8" />
   </div>
 </Section>

@@ -1,3 +1,13 @@
+import { z } from "astro:content";
+
+const FounderSchema = z.object({
+  name: z.string(),
+  svg_path: z.string(),
+});
+const SponsorSchema = FounderSchema;
+
+export type Founder = z.infer<typeof FounderSchema>;
+export type Sponsor = z.infer<typeof SponsorSchema>;
 /*
 Adding a new partner : 
 You are in front of an array, you can add a partner by following the scheme.
@@ -9,7 +19,7 @@ Copy/paste the example, and replace with your own information.
     },
 */
 
-export const founders = [
+export const founders: Founder[] = [
   {
     name: "BCG Gamma",
     svg_path: "/assets/partners/bcg_gamma.svg",
@@ -27,7 +37,7 @@ export const founders = [
     svg_path: "/assets/partners/mila.svg",
   },
 ];
-export const sponsors = [
+export const sponsors: Sponsor[] = [
   {
     name: "Clever Cloud",
     svg_path: "/assets/partners/clever_cloud.png",

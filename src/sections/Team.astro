@@ -3,12 +3,12 @@ import Section from "../components/Section.astro";
 import SpreadLoveIcon from "../assets/icons/Spread-love.svg";
 import CrownIcon from "../assets/icons/interface-essential-crown.svg";
 import Button from "../components/Button.astro";
-import { data as contributorsData } from "../assets/contributors/contributors.js";
+import { contributors as contributorsData } from "../content/contributors";
 ---
 
 <Section id="team">
   <div class="flex flex-row">
-    <div class="w-2/3 min-h-screen">
+    <div class="w-2/3">
       <h1 class="text-4xl font-bold text-white uppercase max-w-xl">
         CodeCarbon is maintained by amazing contributors
       </h1>
@@ -29,7 +29,7 @@ import { data as contributorsData } from "../assets/contributors/contributors.js
                 {contributor.name}
               </h2>
               <p class="text-lime-300">{contributor.job}</p>
-              <p class="text-lime-300">{contributor.Organisation}</p>
+              <p class="text-lime-300">{contributor.organisation}</p>
             </div>
           ))
         }
