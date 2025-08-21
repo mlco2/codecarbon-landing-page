@@ -2,6 +2,7 @@
   "name": "astro-codecarbon",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@latest",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

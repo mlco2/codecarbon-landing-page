@@ -5,17 +5,18 @@ import Button from "./Button.astro";
 const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
 const GITHUB_CODECARBON_URL = "https://github.com/mlco2/codecarbon";
 const sections = [
-  { title: "About", href: "/#about" },
-  { title: "How it works", href: "/#how-it-works" },
-  { title: "Call to action", href: "/#call-to-action" },
-  { title: "Team", href: "/#team" },
+  { title: "About", href: "#about" },
+  { title: "How it works", href: "#how-it-works" },
+  { title: "Call to action", href: "#call-to-action" },
+  { title: "Team", href: "#team" },
   { title: "Contact us", href: GITHUB_CODECARBON_URL },
 ];
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <div class="mx-auto mb-10">
   <nav class="flex flex-row items-center justify-between p-4">
-    <a href="/" class="mx-4"><CodecarbonLogo /></a>
+    <a href={BASE_URL} class="mx-4"><CodecarbonLogo /></a>
     <ul class="flex flex-row
     items-center justify-between p-4
     min-w-2xl">
