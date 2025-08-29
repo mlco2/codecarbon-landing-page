@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import Button from "./Button.astro";
+import Hamburguer from "./Hamburguer.astro";
 const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
 const GITHUB_CODECARBON_URL = "https://github.com/mlco2/codecarbon";
 const sections = [
@@ -14,12 +15,18 @@ const sections = [
 const BASE_URL = import.meta.env.BASE_URL;
 ---
 
-<div class="mx-auto mb-10">
-  <nav class="flex flex-row items-center justify-between p-4">
+<div class="mx-auto mb-10 max-w-full">
+  <nav
+    class="flex flex-row items-center justify-between p-4 gap-x-4 w-full relative"
+  >
     <a href={BASE_URL} class="mx-4"><CodecarbonLogo /></a>
-    <ul class="flex flex-row
-    items-center justify-between p-4
-    min-w-2xl">
+    <!-- Hamburger button for mobile -->
+    <Hamburguer />
+    <!-- Navigation list -->
+    <ul
+      id="nav-list"
+      class="flex-col items-center justify-between w-auto md:flex md:flex-row hidden md:static absolute top-16 left-0 right-0 bg-black md:bg-transparent z-10 md:z-auto md:gap-x-4 p-4 md:p-0"
+    >
       {
         sections.map((section) => (
           <li class="mx-4 hover:bg-lime-600 rounded p-2">
@@ -27,11 +34,15 @@ const BASE_URL = import.meta.env.BASE_URL;
           </li>
         ))
       }
+      <li class="mx-4 md:hidden">
+        <Button href={DASHBOARD_API_URL}>Sign in</Button>
+      </li>
     </ul>
-    <div>
+    <!-- Desktop sign in button -->
+    <div class="hidden md:block">
       <Button href={DASHBOARD_API_URL}>Sign in</Button>
     </div>
   </nav>
   <hr class="border-lime-300 border-2" />
 </div>
-<ClientRouter />
+<script is:inline src={`${BASE_URL}nav-toggle.js`}></script>

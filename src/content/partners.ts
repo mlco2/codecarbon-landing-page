@@ -43,6 +43,10 @@ export const sponsors: Sponsor[] = [
     svg_path: "assets/partners/clever_cloud.png",
   },
   {
+    name: "DataForGood",
+    svg_path: "assets/partners/dataforgood.png",
+  },
+  {
     name: "GitHub",
     svg_path: "assets/partners/GitHub.png",
   },

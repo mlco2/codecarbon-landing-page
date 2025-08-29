@@ -11,10 +11,14 @@ import { sponsors as sponsorLogos } from "../content/partners";
     <h1 class="text-3xl font-bold text-white uppercase max-w-3xl">
       CodeCarbon is supported by our sponsors
     </h1>
-    <div class="flex flex-wrap justify-between mt-4">
+    <div class="flex flex-wrap justify-between mt-4 max-w-full overflow-x-auto">
       {
         sponsorLogos.map((logo) => (
-          <img src={logo.svg_path} alt={logo.name} class="w-40 m-2" />
+          <img
+            src={logo.svg_path}
+            alt={logo.name}
+            class="w-40 max-h-40 object-contain m-2 flex-shrink-0"
+          />
         ))
       }
     </div>
@@ -25,7 +29,11 @@ import { sponsors as sponsorLogos } from "../content/partners";
     <div class="flex flex-wrap justify-center mt-4">
       {
         partnerLogos.map((logo) => (
-          <img src={logo.svg_path} alt={logo.name} class="w-32  m-2" />
+          <img
+            src={logo.svg_path}
+            alt={logo.name}
+            class="w-32 max-h-32 object-contain m-2"
+          />
         ))
       }
     </div>
