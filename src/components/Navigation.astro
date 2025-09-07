@@ -26,7 +26,7 @@ const BASE_URL = import.meta.env.BASE_URL;
       <!-- Navigation list -->
       <ul
         id="nav-list"
-        class="flex-col items-center justify-between w-auto md:flex md:flex-row hidden md:static absolute top-16 left-0 right-0 bg-black md:bg-transparent z-10 md:z-auto md:gap-x-4 p-4 md:p-0"
+        class="flex-col md:flex md:flex-row flex-wrap items-center justify-between w-auto max-w-full shrink min-w-0 hidden md:static absolute top-16 left-0 right-0 bg-black md:bg-transparent z-10 md:z-auto md:gap-x-4 p-4 md:p-0"
       >
         {
           sections.map((section) => (
@@ -47,4 +47,5 @@ const BASE_URL = import.meta.env.BASE_URL;
   </div>
   <hr class="border-lime-300 border-2" />
 </div>
+<ClientRouter />
 <script is:inline src={`${BASE_URL}nav-toggle.js`}></script>

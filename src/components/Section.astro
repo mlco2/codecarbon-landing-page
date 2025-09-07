@@ -4,7 +4,7 @@ const { id, invert } = Astro.props;
 ---
 
 <div
-  class=`flex flex-col items-center justify-center gap-2 ${invert ? "bg-lime-300 text-black" : "text-white "}  p-20 w-screen`
+  class=`flex flex-col items-center justify-center gap-2 ${invert ? "bg-lime-300 text-black" : "text-white "} pt-10 pb-10 px-5 lg:p-20 w-screen`
   id={id}
 >
   <slot />
