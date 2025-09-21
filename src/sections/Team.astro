@@ -2,6 +2,7 @@
 import Section from "../components/Section.astro";
 import SpreadLoveIcon from "../assets/icons/Spread-love.svg";
 import CrownIcon from "../assets/icons/interface-essential-crown.svg";
+import GithubIcon from "../assets/icons/social/Github.svg";
 import Button from "../components/Button.astro";
 import { contributors as contributorsData } from "../content/contributors";
 ---
@@ -38,7 +39,9 @@ import { contributors as contributorsData } from "../content/contributors";
       </div>
       <div class="pt-8 items-center justify-center flex flex-col">
         <Button href="https://github.com/mlco2/codecarbon/graphs/contributors"
-          >View all contributors</Button
+          ><div class="flex items-center gap-2">
+            <GithubIcon class="size-6 fill-black" /> View all contributors
+          </div></Button
         >
       </div>
     </div>
@@ -52,7 +55,9 @@ import { contributors as contributorsData } from "../content/contributors";
       <p class="prose text-white">Join us and help us improve CodeCarbon!</p>
       <Button
         href="https://github.com/mlco2/codecarbon/blob/master/CONTRIBUTING.md"
-        >I'd love to contribute</Button
+        ><div class="flex items-center gap-2">
+          <GithubIcon class="size-6 fill-black" /> I'd love to contribute
+        </div></Button
       >
     </div>
   </div>

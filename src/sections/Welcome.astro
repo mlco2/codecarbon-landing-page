@@ -2,19 +2,27 @@
 import GlobalIcon from "../assets/icons/Global.svg";
 import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
+import ContentFilesNewspaperIcon from "../assets/icons/content-files-newspaper.svg";
 ---
 
 <Section id="welcome">
-  <GlobalIcon class="size-80 md:size-125" />
-  <h1 class="text-3xl font-bold text-center text-white max-w-xl mx-auto">
-    Track & reduce Co2 emissions from your computing
-  </h1>
-  <p class="text-center text-lg prose text-white">
-    AI can benefit society in many ways, but given the energy needed to support
-    the computing behind AI, these benefits can come at a high environmental
-    price. Use Code Carbon to track and reduce your CO2 output.
-  </p>
-  <Button href="https://mlco2.github.io/codecarbon/installation.html"
-    >Get Started</Button
-  >
+  <div class="flex flex-col md:flex-row items-center justify-center">
+    <div class="flex-1 flex flex-col items-center gap-7">
+      <GlobalIcon class="size-80 md:size-125" />
+      <h1 class="text-3xl font-bold text-center text-white max-w-xl mx-auto">
+        Track & reduce Co2 emissions from your computing
+      </h1>
+      <p class="text-center text-lg prose text-white">
+        AI can benefit society in many ways, but given the energy needed to
+        support the computing behind AI, these benefits can come at a high
+        environmental price. Use Code Carbon to track and reduce your CO2
+        output.
+      </p>
+      <Button href="https://mlco2.github.io/codecarbon/installation.html">
+        <div class="flex items-center gap-2">
+          <ContentFilesNewspaperIcon class="size-6 fill-black" /> Get Started
+        </div>
+      </Button>
+    </div>
+  </div>
 </Section>

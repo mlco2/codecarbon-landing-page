@@ -47,16 +47,16 @@ export const contributors: Contributor[] = [
     organisation: "",
     img_path: "assets/contributors/img/inigo.jpg",
   },
-  // {
-  //   name: "Luis Blanche",
-  //   job: "Machine Learning Engineer",
-  //   organisation: "",
-  //   img_path: "",
-  // },
-  // {
-  //   name: "Patrick",
-  //   job: "Software developer",
-  //   organisation: "",
-  //   img_path: "",
-  // },
+  {
+    name: "Luis Blanche",
+    job: "Machine Learning Engineer",
+    organisation: "",
+    img_path: "https://avatars.githubusercontent.com/u/18741447",
+  },
+  {
+    name: "Patrick",
+    job: "Software developer",
+    organisation: "",
+    img_path: "https://avatars.githubusercontent.com/u/6672288",
+  },
 ];

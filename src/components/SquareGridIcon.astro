@@ -1,0 +1,9 @@
+---
+import IndividualSquareIcon from "./IndividualSquareIcon.astro";
+
+const { length = 10 } = Astro.props;
+---
+
+<div class="mx-auto flex items-center justify-center">
+  {Array.from({ length }).map((_, i) => <IndividualSquareIcon key={i} />)}
+</div>

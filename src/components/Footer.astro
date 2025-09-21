@@ -1,3 +1,44 @@
-<div class="mx-auto flex p-4 items-center justify-center">
-  <p>&copy; 2025 Codecarbon. All rights reserved.</p>
+---
+import SquareGridIcon from "./SquareGridIcon.astro";
+import GithubIcon from "../assets/icons/social/Github.svg";
+import LinkedinIcon from "../assets/icons/social/Linkedin.svg";
+import YoutubeIcon from "../assets/icons/social/Youtube.svg";
+---
+
+<div class="flex gap-2">
+  <SquareGridIcon class="size-6" length="200" />
 </div>
+<div class="flex items-center justify-center gap-3 mx-4 pt-8">
+  <a
+    href="https://github.com/mlco2/codecarbon"
+    target="_blank"
+    rel="noopener"
+    aria-label="GitHub"
+  >
+    <GithubIcon class="size-10" />
+  </a>
+  <a
+    href="https://www.linkedin.com/company/codecarbon"
+    target="_blank"
+    rel="noopener"
+    aria-label="LinkedIn"
+  >
+    <LinkedinIcon class="size-10" />
+  </a>
+  <a
+    href="https://www.youtube.com/@codecarbon-package"
+    target="_blank"
+    rel="noopener"
+    aria-label="YouTube"
+  >
+    <YoutubeIcon class="size-10" />
+  </a>
+</div>
+<div class="mx-auto flex items-center p-4 justify-center gap-2">
+  <p class="text-sm min-w-[340px]">
+    &copy; 2025 Codecarbon. All rights reserved.
+  </p>
+</div>
+<!-- <div class="mx-auto flex items-center gap-2">
+  <SquareGridIcon class="size-6" length="500" />
+</div> -->

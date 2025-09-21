@@ -1,0 +1,33 @@
+<svg
+  width="9"
+  height="28"
+  viewBox="0 0 9 28"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="3x3 grid icon"
+>
+  {
+    /**
+		3x3 grid of squares
+		Let s = square size, g = gap between squares
+		g = 2s
+		So, total width = 3s + 2g = 3s + 4s = 7s
+		Let s = 4, g = 8, so icon is 28x28, center in 48x48
+		Offset = (48-28)/2 = 10
+	*/
+  }
+  {
+    Array.from({ length: 3 }).map((_, row) =>
+      Array.from({ length: 1 }).map((_, col) => {
+        const s = 4;
+        const g = 8;
+        const offset = 0;
+        const x = offset + col * (s + g);
+        const y = offset + row * (s + g);
+        return (
+          <rect x={x} y={y} width={s} height={s} rx="1" fill="currentColor" />
+        );
+      })
+    )
+  }
+</svg>
