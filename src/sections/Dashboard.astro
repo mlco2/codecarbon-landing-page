@@ -3,18 +3,18 @@ import Section from "../components/Section.astro";
 import DotCrossIcon from "../assets/icons/Dot-cross.svg";
 const data = [
   {
-    img_path: "assets/dashboard/device_emissions.png",
-    description:
-      "Emissions for individual code repositories based on infraestructure and power consumption.",
-  },
-  {
     img_path: "assets/dashboard/exemplary_equivalents.png",
     description: "Exemplary equivalents to put emissions in context.",
   },
   {
-    img_path: "assets/dashboard/region_recommendations.png",
+    img_path: "assets/dashboard/device_emissions.png",
     description:
-      "Recommends compute regions with lower carbon intensity for major cloud providers – AWS, Azure, and GCP.",
+      "Compare emissions based on infraestructure and power consumption.",
+  },
+  {
+    img_path: "assets/dashboard/device_emissions_run.png",
+    description:
+      "See live emissions as your code runs.",
   },
 ];
 ---
@@ -31,12 +31,15 @@ const data = [
   {
     data.map((item, i) => (
       <div
-        class={`md:flex items-center gap-4 p-4${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
+        class={`grid grid-cols-1 md:grid-cols-2 w-400 items-center gap-4 p-8${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
       >
-        <img src={item.img_path} alt="" class="w-100 lg:w-150 rounded-lg" />
+        <img
+          src={item.img_path}
+          alt=""
+          class="w-100 lg:w-150 rounded-lg justify-self-center"
+        />
         <p class="prose text-white text-lg">{item.description}</p>
       </div>
     ))
   }
-  <!--TODO: Update screenshots using the new dashboard here-->
 </Section>
