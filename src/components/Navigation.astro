@@ -3,16 +3,16 @@ import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import Button from "./Button.astro";
 import Hamburguer from "./Hamburguer.astro";
-const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
-const GITHUB_CODECARBON_URL = "https://github.com/mlco2/codecarbon";
+import { GITHUB_CODECARBON_URL, DASHBOARD_API_URL } from "../consts";
+const BASE_URL = import.meta.env.BASE_URL;
 const sections = [
-  { title: "About", href: "#about" },
-  { title: "How it works", href: "#how-it-works" },
-  { title: "Call to action", href: "#call-to-action" },
-  { title: "Team", href: "#team" },
+  { title: "Blog", href: `${BASE_URL}blog` },
+  { title: "About", href: `${BASE_URL}#about` },
+  { title: "How it works", href: `${BASE_URL}#how-it-works` },
+  { title: "Call to action", href: `${BASE_URL}#call-to-action` },
+  { title: "Team", href: `${BASE_URL}#team` },
   { title: "Contact us", href: GITHUB_CODECARBON_URL },
 ];
-const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <div class="mx-auto mb-10 max-w-full items-center justify-center">
@@ -48,4 +48,4 @@ const BASE_URL = import.meta.env.BASE_URL;
   <hr class="border-lime-300 border-2" />
 </div>
 <ClientRouter />
-<script is:inline src={`${BASE_URL}nav-toggle.js`}></script>
+<script is:inline src={`nav-toggle.js`}></script>
