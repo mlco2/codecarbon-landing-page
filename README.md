@@ -42,7 +42,7 @@ To add a new contributor, follow these steps:
     name: "Your Name",
     job: "Your Job Title",
     organisation: "Your Organisation",
-    img_path: "./assets/contributors/img/your_image.jpg"
+    img_path: "/assets/contributors/img/your_image.jpg"
 },
 ```
 

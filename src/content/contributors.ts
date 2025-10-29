@@ -18,7 +18,7 @@ Copy/paste the example, and replace with your own information.
         name: "Your_data_here",
         job : "Your_data_here",
         organisation: "Your_data_here",
-        img_path: "./assets/contributors/img/someone.jpeg"
+        img_path: "/assets/contributors/img/someone.jpeg"
     },
 */
 
@@ -27,25 +27,25 @@ export const contributors: Contributor[] = [
     name: "Benoît Courty",
     job: "Data Scientist",
     organisation: "",
-    img_path: "assets/contributors/img/Benoit_Courty.jpg",
+    img_path: "/assets/contributors/img/Benoit_Courty.jpg",
   },
   {
     name: "Amine Saboni",
     job: "Deep Learning Engineer",
     organisation: "",
-    img_path: "assets/contributors/img/Amine_Saboni.jpg",
+    img_path: "/assets/contributors/img/Amine_Saboni.jpg",
   },
   {
     name: "Sasha Luccioni",
     job: "Researcher",
     organisation: "Hugging Face",
-    img_path: "assets/contributors/img/sascha.jpg",
+    img_path: "/assets/contributors/img/sascha.jpg",
   },
   {
     name: "Iñigo Imaz",
     job: "Software Developer",
     organisation: "",
-    img_path: "assets/contributors/img/inigo.jpg",
+    img_path: "/assets/contributors/img/inigo.jpg",
   },
   {
     name: "Luis Blanche",
