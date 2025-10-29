@@ -3,16 +3,16 @@ import Section from "../components/Section.astro";
 import DotCrossIcon from "../assets/icons/Dot-cross.svg";
 const data = [
   {
-    img_path: "assets/dashboard/exemplary_equivalents.png",
+    img_path: "/assets/dashboard/exemplary_equivalents.png",
     description: "Put emissions in context with real-world equivalents.",
   },
   {
-    img_path: "assets/dashboard/device_emissions.png",
+    img_path: "/assets/dashboard/device_emissions.png",
     description:
       "Compare emissions based on infrastructure and power consumption.",
   },
   {
-    img_path: "assets/dashboard/device_emissions_run.png",
+    img_path: "/assets/dashboard/device_emissions_run.png",
     description: "See live emissions as your code runs.",
   },
 ];
@@ -30,14 +30,16 @@ const data = [
   {
     data.map((item, i) => (
       <div
-        class={`grid grid-cols-1 md:grid-cols-2 w-400 items-center gap-4 p-8${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
+        class={`grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl md:max-w-8xl mx-auto items-center gap-4 p-4 md:p-8${i < data.length - 1 ? " border-b border-gray-500" : ""}`}
       >
         <img
           src={item.img_path}
           alt=""
-          class="w-100 lg:w-150 rounded-lg justify-self-center"
+          class="w-full max-w-md lg:max-w-lg rounded-lg justify-self-center"
         />
-        <p class="prose text-white text-lg">{item.description}</p>
+        <p class="text-white text-base md:text-lg leading-relaxed">
+          {item.description}
+        </p>
       </div>
     ))
   }
