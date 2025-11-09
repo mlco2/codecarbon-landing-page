@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import Layout from "./Layout.astro";
+import Prose from "../components/Prose.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+console.log(updatedDate);
+---
+
+<Layout>
+  <main class="w-[calc(100%-2rem)] max-w-full m-0">
+    <article>
+      <div class="w-full">
+        {
+          heroImage && (
+            <Image
+              width={1020}
+              height={510}
+              src={heroImage}
+              alt=""
+              class="block mx-auto rounded-xl shadow-[var(--box-shadow)]"
+            />
+          )
+        }
+      </div>
+      <div
+        class="w-[720px] max-w-[calc(100%-2rem)] mx-auto p-4 text-[rgb(var(--gray-dark))]"
+      >
+        <div class="mb-4 py-4 text-center leading-none">
+          <div class="mb-2 text-gray-400">
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div class="italic mt-2 text-sm text-gray-400">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          <h1 class="m-0 mb-2 text-lime-300 text-5xl">{title}</h1>
+          <hr class="border-gray-600" />
+        </div>
+        <Prose>
+          <slot />
+        </Prose>
+      </div>
+    </article>
+  </main>
+</Layout>

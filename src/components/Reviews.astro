@@ -9,7 +9,7 @@ import ArrowLeftIcon from "../assets/icons/Arrow-left.svg";
   >
     <img
       id="review-image"
-      src="./assets/reviews/card1.jpg"
+      src="/assets/reviews/card1.jpg"
       class="rounded-lg w-3xl"
       alt="Review 1"
     />
@@ -42,47 +42,67 @@ import ArrowLeftIcon from "../assets/icons/Arrow-left.svg";
 
 <!-- We are doing a review carousel. This is a vanilla js implementation of it, if in the future we need more complex behaviour, we can do a react version. See Astro islands for more info: https://astro.build/en/core-concepts/astro-islands/ -->
 <script>
-  const pagination = document.getElementById("review-pagination");
-  const images = [
-    "./assets/reviews/card1.jpg",
-    "./assets/reviews/card2.jpg",
-    "./assets/reviews/card3.jpg",
-    "./assets/reviews/card4.jpg",
-    "./assets/reviews/card5.jpg",
-    "./assets/reviews/card6.jpg",
-    // Add more image paths as needed
-  ];
+  function initReviewCarousel() {
+    const pagination = document.getElementById("review-pagination");
+    const images = [
+      "/assets/reviews/card1.jpg",
+      "/assets/reviews/card2.jpg",
+      "/assets/reviews/card3.jpg",
+      "/assets/reviews/card4.jpg",
+      "/assets/reviews/card5.jpg",
+      "/assets/reviews/card6.jpg",
+      // Add more image paths as needed
+    ];
 
-  function renderPagination() {
-    pagination.innerHTML = "";
-    images.forEach((_, i) => {
-      const circle = document.createElement("span");
-      circle.className =
-        "inline-block size-2 lg:size-3 rounded-full transition-colors duration-200 " +
-        (i === index ? "bg-lime-400" : "bg-gray-400");
-      pagination.appendChild(circle);
+    if (!pagination) return;
+
+    function renderPagination() {
+      if (!pagination) return;
+      pagination.innerHTML = "";
+      images.forEach((_, i) => {
+        const circle = document.createElement("span");
+        circle.className =
+          "inline-block size-2 lg:size-3 rounded-full transition-colors duration-200 " +
+          (i === index ? "bg-lime-400" : "bg-gray-400");
+        pagination.appendChild(circle);
+      });
+    }
+
+    let index = 0;
+    // Initial render
+    renderPagination();
+
+    const img = document.getElementById("review-image") as HTMLImageElement;
+    const left = document.getElementById("arrow-left");
+    const right = document.getElementById("arrow-right");
+
+    left?.addEventListener("click", () => {
+      index = index === 0 ? images.length - 1 : index - 1;
+      if (img) {
+        img.src = images[index];
+        img.alt = `Review ${index + 1}`;
+      }
+      renderPagination();
+    });
+
+    right?.addEventListener("click", () => {
+      index = index === images.length - 1 ? 0 : index + 1;
+      if (img) {
+        img.src = images[index];
+        img.alt = `Review ${index + 1}`;
+      }
+      renderPagination();
     });
   }
 
-  let index = 0;
-  // Initial render
-  renderPagination();
+  // Run on initial load
+  document.addEventListener("DOMContentLoaded", initReviewCarousel);
 
-  const img = document.getElementById("review-image");
-  const left = document.getElementById("arrow-left");
-  const right = document.getElementById("arrow-right");
+  // Run on every page show (including back/forward navigation)
+  document.addEventListener("astro:page-load", initReviewCarousel);
 
-  left?.addEventListener("click", () => {
-    index = index === 0 ? images.length - 1 : index - 1;
-    img.src = images[index];
-    img.alt = `Review ${index + 1}`;
-    renderPagination();
-  });
-
-  right.addEventListener("click", () => {
-    index = index === images.length - 1 ? 0 : index + 1;
-    img.src = images[index];
-    img.alt = `Review ${index + 1}`;
-    renderPagination();
-  });
+  // Fallback for immediate execution if DOM is already ready
+  if (document.readyState !== "loading") {
+    initReviewCarousel();
+  }
 </script>
