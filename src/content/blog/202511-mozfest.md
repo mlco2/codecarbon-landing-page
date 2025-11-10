@@ -2,7 +2,7 @@
 title: "The Mozilla Foundation is supporting us!"
 description: "CodeCarbon receive a grant from Mozilla Foundation"
 pubDate: "Nov 09 2025"
-updatedDate: "Nov 09 2025"
+updatedDate: "Nov 10 2025"
 heroImage: "../../assets/images/2025-11-07-MozFest-Logo_GroupShot.jpeg"
 ---
 
