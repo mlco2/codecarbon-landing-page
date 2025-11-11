@@ -8,9 +8,9 @@ heroImage: "../../assets/images/2025-11-07-MozFest-Logo_GroupShot.jpeg"
 
 CodeCarbon is proud to be part of the 🚀 **Mozilla Foundation Incubator** 🚀
 
-# Mozilla Foundation 🏢 
+# Mozilla Foundation 🏢
 
-The Mozilla Foundation is best known known for the [Firefox browser](https://www.firefox.com/en-US/), but it also supports a large number of initiatives and projects, all dedicated to building a future where technology is powered by people, and open by design.
+The Mozilla Foundation is best known for the [Firefox browser](https://www.firefox.com/en-US/), but it also supports a large number of initiatives and projects, all dedicated to building a future where technology is powered by people, and open by design.
 
 They've just launched the Mozilla Foundation Incubator -- **and we are proud to have been selected in the first cohort**.
 
