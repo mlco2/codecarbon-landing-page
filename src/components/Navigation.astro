@@ -48,4 +48,26 @@ const sections = [
   <hr class="border-lime-300 border-2" />
 </div>
 <ClientRouter />
-<script is:inline src={`/nav-toggle.js`}></script>
+<script is:inline>
+  // Function to toggle navigation list visibility
+  function initNavToggle() {
+    const navToggle = document.getElementById("nav-toggle");
+    const navList = document.getElementById("nav-list");
+    if (navToggle && navList) {
+      navToggle.addEventListener("click", function () {
+        navList.classList.toggle("hidden");
+        navList.classList.toggle("flex");
+      });
+    }
+  }
+
+  // Run on initial load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNavToggle);
+  } else {
+    initNavToggle();
+  }
+
+  // Run after client-side navigation
+  document.addEventListener("astro:page-load", initNavToggle);
+</script>
