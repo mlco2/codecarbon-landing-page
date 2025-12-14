@@ -14,14 +14,14 @@
     "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.0",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.16.5",
     "prettier": "^3.6.2",
     "sharp": "^0.34.4",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6"
   }
