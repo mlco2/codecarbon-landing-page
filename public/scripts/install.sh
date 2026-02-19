@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-CODECARBON_VERSION="3.2.2"
-
 if ! command -v uv >/dev/null 2>&1; then
     echo "Installing uv to handle python environment..."
   curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -16,7 +14,7 @@ if ! command -v uv >/dev/null 2>&1; then
 fi
 
 echo "Installing CodeCarbon using uv..."
-uv tool install codecarbon@$CODECARBON_VERSION --force
+uv tool install codecarbon --force
 
 echo ""
 echo "✅ Installation complete!"

@@ -58,14 +58,3 @@ To add a new contributor, follow these steps:
 ```
 
 3. Save the file and your changes will be reflected on the website.
-
-# Add new codecarbon install script
-
-We host the install scripts for different versions of CodeCarbon. For easier installation for non-python users.
-To add a new install script, follow these steps:
-
-1. Copy the bash script from `scripts/install.template.sh` and paste it into `public/scripts/install.sh`. Then edit the `CODECARBON_VERSION` variable in `public/scripts/install.sh` to the desired version of CodeCarbon you want to install. Example with `sed` command:
-   `export CODECARBON_VERSION=3.2.2 && sed "s/{{VERSION}}/$CODECARBON_VERSION/" scripts/install.template.sh > public/scripts/install.sh`
-1. Create a folder `public/scripts/v${CODECARBON_VERSION}` and copy the `install.sh` script there.
-   `export CODECARBON_VERSION=3.2.2 && mkdir -p public/scripts/v${CODECARBON_VERSION} && cp public/scripts/install.sh public/scripts/v${CODECARBON_VERSION}/install.sh`
-1. Run the app locally with `pnpm dev` and check that the https://localhost:4321/scripts/install.sh page is working and that the install script is correct. You can also check the https://localhost:4321/scripts/v${CODECARBON_VERSION}/install.sh page to make sure the versioned script is correct.
