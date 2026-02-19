@@ -58,4 +58,3 @@ To add a new contributor, follow these steps:
 ```
 
 3. Save the file and your changes will be reflected on the website.
-   ²
