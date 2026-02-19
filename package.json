@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
-    "astro": "^5.16.5",
+    "astro": "^5.17.3",
     "prettier": "^3.6.2",
     "sharp": "^0.34.4",
     "tailwindcss": "^4.1.16"
