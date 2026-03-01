@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
+import GithubIcon from "../assets/icons/social/Github.svg";
 import Button from "./Button.astro";
 import Hamburguer from "./Hamburguer.astro";
 import {
@@ -43,9 +44,20 @@ const sections = [
           <Button href={DASHBOARD_API_URL}>Sign in</Button>
         </li>
       </ul>
-      <!-- Desktop sign in button -->
-      <div class="hidden md:block">
-        <Button href={DASHBOARD_API_URL}>Sign in</Button>
+      <!-- GitHub icon and Sign in button group -->
+      <div class="flex items-center gap-8">
+        <div class="hidden md:block">
+          <Button href={DASHBOARD_API_URL}>Sign in</Button>
+        </div>
+        <a
+          href={GITHUB_CODECARBON_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden md:block hover:opacity-80 transition-opacity"
+          aria-label="GitHub Repository"
+        >
+          <GithubIcon class="w-6 h-6" />
+        </a>
       </div>
     </nav>
   </div>
