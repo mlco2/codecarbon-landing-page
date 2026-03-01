@@ -3,7 +3,11 @@ import { ClientRouter } from "astro:transitions";
 import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import Button from "./Button.astro";
 import Hamburguer from "./Hamburguer.astro";
-import { GITHUB_CODECARBON_URL, DASHBOARD_API_URL } from "../consts";
+import {
+  GITHUB_CODECARBON_URL,
+  DASHBOARD_API_URL,
+  DISCORD_URL,
+} from "../consts";
 const BASE_URL = import.meta.env.BASE_URL;
 const sections = [
   { title: "Blog", href: `${BASE_URL}blog` },
@@ -11,7 +15,7 @@ const sections = [
   { title: "How it works", href: `${BASE_URL}#how-it-works` },
   { title: "Call to action", href: `${BASE_URL}#call-to-action` },
   { title: "Team", href: `${BASE_URL}#team` },
-  { title: "Contact us", href: GITHUB_CODECARBON_URL },
+  { title: "Contact us", href: DISCORD_URL },
 ];
 ---
 
