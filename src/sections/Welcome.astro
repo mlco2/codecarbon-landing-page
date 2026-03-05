@@ -3,6 +3,7 @@ import GlobalIcon from "../assets/icons/Global.svg";
 import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import ContentFilesNewspaperIcon from "../assets/icons/content-files-newspaper.svg";
+import { DOCS_URL } from "../consts";
 ---
 
 <Section id="welcome">
@@ -18,7 +19,7 @@ import ContentFilesNewspaperIcon from "../assets/icons/content-files-newspaper.s
         environmental price. Use Code Carbon to track and reduce your CO2
         output.
       </p>
-      <Button href="https://mlco2.github.io/codecarbon/installation.html">
+      <Button href={DOCS_URL}>
         <div class="flex items-center gap-2">
           <ContentFilesNewspaperIcon class="size-6 fill-black" /> Get Started
         </div>
