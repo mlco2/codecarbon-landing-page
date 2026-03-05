@@ -4,3 +4,6 @@ export const SITE_DESCRIPTION =
 
 export const DASHBOARD_API_URL = "https://dashboard.codecarbon.io/";
 export const GITHUB_CODECARBON_URL = "https://github.com/mlco2/codecarbon";
+export const MATOMO_URL =
+  "https://tgudxkgxiqpdslkkqaz5-matomo.services.clever-cloud.com/";
+export const MATOMO_SITE_ID = "2";

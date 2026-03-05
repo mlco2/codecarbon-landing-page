@@ -1,11 +1,12 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import Matomo from "../components/Matomo.astro";
 import Navigation from "../components/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/global.css";
 
-let {title,description,image} = Astro.props;
+let { title, description, image } = Astro.props;
 if (!title) {
   title = SITE_TITLE;
 }
@@ -18,6 +19,7 @@ if (!description) {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} image={image} />
+    <Matomo />
   </head>
   <body class="bg-black text-lime-300 font-plex scroll-smooth">
     <Navigation />
