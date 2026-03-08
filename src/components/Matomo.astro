@@ -4,19 +4,22 @@ import { MATOMO_URL, MATOMO_SITE_ID } from "../consts";
 
 <!-- Matomo -->
 <div
-  id="matomo-localhost"
+  id="matomo"
   data-matomo-url={MATOMO_URL}
   data-matomo-site-id={MATOMO_SITE_ID}
 >
 </div>
 <script>
+  // @ts-expect-error Matomo defines this global queue dynamically.
   var _paq = (window._paq = window._paq || []);
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
   (function () {
-    var u = document.getElementById("matomo").dataset.matomoUrl;
-    var siteId = document.getElementById("matomo").dataset.matomoSiteId;
+    var matomoEl = document.getElementById("matomo");
+    if (!matomoEl) return;
+    var u = matomoEl.dataset.matomoUrl;
+    var siteId = matomoEl.dataset.matomoSiteId;
     _paq.push(["setTrackerUrl", u + "matomo.php"]);
     _paq.push(["setSiteId", siteId]);
     var d = document,
@@ -24,7 +27,7 @@ import { MATOMO_URL, MATOMO_SITE_ID } from "../consts";
       s = d.getElementsByTagName("script")[0];
     g.async = true;
     g.src = u + "matomo.js";
-    s.parentNode.insertBefore(g, s);
+    if (s && s.parentNode) s.parentNode.insertBefore(g, s);
   })();
 </script>
 <!-- End Matomo Code -->
