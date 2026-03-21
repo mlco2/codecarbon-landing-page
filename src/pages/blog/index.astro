@@ -12,15 +12,21 @@ const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <Layout>
-  <main class="w-[960px] max-w-full mx-auto px-4 py-10">
-    <section>
-      <ul class="flex flex-wrap gap-8 list-none m-0 p-0 max-sm:gap-2">
+  <main class="w-full max-w-[1040px] mx-auto px-4 pt-1 md:pt-2 pb-8 md:pb-12">
+    <section aria-labelledby="blog-heading">
+      <header class="mb-6 md:mb-8 text-center">
+        <h1 id="blog-heading" class="m-0 text-3xl md:text-5xl tracking-tight">
+          Blog
+        </h1>
+        <p class="m-0 mt-2 text-lime-200/70 text-lg">News and updates</p>
+      </header>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 list-none m-0 p-0">
         {
           posts.map((post) => (
-            <li class="w-[calc(50%-1rem)] first:w-full first:mb-4 first:text-center max-sm:w-full max-sm:text-center max-sm:first:mb-0">
+            <li class="first:md:col-span-2">
               <a
                 href={`${BASE_URL}blog/${post.id}/`}
-                class="block no-underline transition-all duration-200 ease-in-out [&>*]:no-underline [&>*]:transition-all [&>*]:duration-200 [&>*]:ease-in-out hover:[&>h4]:text-[rgb(var(--accent))] hover:[&>.date]:text-[rgb(var(--accent))] hover:[&>img]:shadow-[var(--box-shadow)]"
+                class="group block h-full no-underline rounded-xl border border-lime-300/20 hover:border-lime-300/40 p-3 md:p-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300/70"
               >
                 {post.data.heroImage && (
                   <Image
@@ -28,13 +34,13 @@ const BASE_URL = import.meta.env.BASE_URL;
                     height={360}
                     src={post.data.heroImage}
                     alt=""
-                    class="mb-2 rounded-xl w-full [.first\:&]:w-full"
+                    class="mb-3 rounded-lg w-full aspect-[16/9] object-cover"
                   />
                 )}
-                <h4 class="title m-0 text-[rgb(var(--black))] leading-none [li:first-child_&]:text-[2.369rem] max-sm:[li:first-child_&]:text-[1.563rem]">
+                <h2 class="m-0 text-xl md:text-2xl font-medium leading-tight group-hover:text-lime-200 transition-colors duration-200">
                   {post.data.title}
-                </h4>
-                <p class="date m-0 text-[rgb(var(--gray))]">
+                </h2>
+                <p class="m-0 mt-2 text-lime-200/70 text-sm">
                   <FormattedDate date={post.data.pubDate} />
                 </p>
               </a>
