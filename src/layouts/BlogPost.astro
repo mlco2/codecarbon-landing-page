@@ -11,7 +11,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <Layout title={title} description={description} image={heroImage}>
-  <main class="w-[calc(100%-2rem)] max-w-full m-0">
+  <main class="w-full max-w-[1040px] px-4 m-0">
     <article>
       <div class="w-full">
         {
@@ -21,28 +21,28 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               height={510}
               src={heroImage}
               alt=""
-              class="block mx-auto rounded-xl shadow-[var(--box-shadow)]"
+              class="block w-full mx-auto rounded-xl shadow-[var(--box-shadow)]"
             />
           )
         }
       </div>
       <div
-        class="w-full max-w-4xl mx-auto md:px-6 py-4 text-[rgb(var(--gray-dark))]"
+        class="w-full max-w-3xl mx-auto py-6 md:py-10 text-lime-200"
       >
-        <div class="mb-4 py-4 text-center leading-none">
-          <div class="mb-2 text-gray-400">
+        <header class="mb-6 md:mb-8 text-left">
+          <p class="m-0 text-lime-200/70 text-sm">
             <FormattedDate date={pubDate} />
             {
               updatedDate && (
-                <div class="italic mt-2 text-sm text-gray-400">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
+                <span class="italic"> · Updated <FormattedDate date={updatedDate} /></span>
               )
             }
-          </div>
-          <h1 class="m-0 mb-2 text-lime-300 text-5xl">{title}</h1>
-          <hr class="border-gray-600" />
-        </div>
+          </p>
+          <h1 class="m-0 mt-3 text-3xl md:text-5xl leading-tight tracking-tight text-lime-300">
+            {title}
+          </h1>
+          <hr class="mt-5 border-lime-300/20" />
+        </header>
         <Prose>
           <slot />
         </Prose>
