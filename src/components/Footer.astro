@@ -3,6 +3,11 @@ import SquareGridIcon from "./SquareGridIcon.astro";
 import GithubIcon from "../assets/icons/social/Github.svg";
 import LinkedinIcon from "../assets/icons/social/Linkedin.svg";
 import YoutubeIcon from "../assets/icons/social/Youtube.svg";
+import {
+  GITHUB_CODECARBON_URL,
+  LINKEDIN_URL,
+  YOUTUBE_URL
+} from "../consts";
 ---
 
 <div class="flex gap-2">
@@ -10,7 +15,7 @@ import YoutubeIcon from "../assets/icons/social/Youtube.svg";
 </div>
 <div class="flex items-center justify-center gap-3 mx-4 pt-8">
   <a
-    href="https://github.com/mlco2/codecarbon"
+    href={GITHUB_CODECARBON_URL}
     target="_blank"
     rel="noopener"
     aria-label="GitHub"
@@ -18,7 +23,7 @@ import YoutubeIcon from "../assets/icons/social/Youtube.svg";
     <GithubIcon class="size-10" />
   </a>
   <a
-    href="https://www.linkedin.com/company/codecarbon"
+    href={LINKEDIN_URL}
     target="_blank"
     rel="noopener"
     aria-label="LinkedIn"
@@ -26,7 +31,7 @@ import YoutubeIcon from "../assets/icons/social/Youtube.svg";
     <LinkedinIcon class="size-10" />
   </a>
   <a
-    href="https://www.youtube.com/@codecarbon-package"
+    href={YOUTUBE_URL}
     target="_blank"
     rel="noopener"
     aria-label="YouTube"
