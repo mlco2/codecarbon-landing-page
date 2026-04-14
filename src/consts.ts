@@ -11,7 +11,7 @@ export const MATOMO_URL =
 export const MATOMO_SITE_ID = "2";
 
 // Documentation & support
-export const DOCS_URL = "https://docs.codecarbon.io/latest/";
+export const DOCS_URL = "https://docs.codecarbon.io/";
 export const DISCORD_URL = "https://discord.com/invite/GS9js2XkJR";
 
 // Social media
