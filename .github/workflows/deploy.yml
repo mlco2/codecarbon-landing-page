@@ -11,6 +11,8 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  NODE_VERSION: 24
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +21,10 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install, build, and upload your site
         uses: withastro/action@15aa0a5a1e067940253e3b259413ab2ae882a740 # v5.2.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          package-manager: "pnpm@9.0.0"
+          build-cmd: "pnpm run build"
 
   deploy:
     needs: build
