@@ -9,9 +9,9 @@ const SponsorSchema = FounderSchema;
 export type Founder = z.infer<typeof FounderSchema>;
 export type Sponsor = z.infer<typeof SponsorSchema>;
 /*
-Adding a new partner : 
+Adding a new partner :
 You are in front of an array, you can add a partner by following the scheme.
-Copy/paste the example, and replace with your own information. 
+Copy/paste the example, and replace with your own information.
 
     {
         name: "Your_data_here",
@@ -53,5 +53,38 @@ export const sponsors: Sponsor[] = [
   {
     name: "Mozilla",
     svg_path: "/assets/partners/mozilla.svg",
+  },
+];
+
+export const ecologitsSponsors: Sponsor[] = [
+  {
+    name: "Resilio",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/resilio.png",
+  },
+  {
+    name: "Terra Cognita",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/terra_cognita.png",
+  },
+  {
+    name: "Sopht",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/sopht.png",
+  },
+  {
+    name: "Avanade",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/avanade.png",
+  },
+  {
+    name: "Theodo",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/theodo.png",
+  },
+  {
+    name: "Ministère de la Culture",
+    svg_path:
+      "https://raw.githubusercontent.com/mlco2/ecologits/main/docs/assets/sponsors/ministere_culture.png",
   },
 ];

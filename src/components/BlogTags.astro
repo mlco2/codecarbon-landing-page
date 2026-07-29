@@ -1,0 +1,29 @@
+---
+export type BlogTag = "codecarbon" | "ecologits";
+
+const tagLabels: Record<BlogTag, string> = {
+  codecarbon: "CodeCarbon",
+  ecologits: "EcoLogits",
+};
+
+interface Props {
+  tags: BlogTag[];
+  class?: string;
+}
+
+const { tags, class: className } = Astro.props;
+---
+
+{
+  tags.length > 0 && (
+    <ul class:list={["flex flex-wrap gap-2 list-none m-0 p-0", className]}>
+      {tags.map((tag) => (
+        <li>
+          <span class="rounded border border-lime-300/50 px-2 py-0.5 text-[10px] uppercase tracking-wide text-lime-300">
+            {tagLabels[tag]}
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}

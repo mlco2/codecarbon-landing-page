@@ -1,0 +1,156 @@
+---
+import Section from "../components/Section.astro";
+import CodeSnippet from "../components/CodeSnippet.astro";
+import GithubIcon from "../assets/icons/social/Github.svg";
+import { codeExamples, products } from "../content/ecosystem";
+
+const productPanels = products.map((product) => ({
+  product,
+  examples: codeExamples.filter((example) => example.product === product.id),
+}));
+---
+
+<Section id="code">
+  <h2 class="text-3xl font-bold uppercase text-white">Get started in minutes</h2>
+  <p class="prose max-w-3xl text-center text-white">
+    Install a package, paste a snippet, run. Both tools side by side — pick
+    Python or CLI/API within each column.
+  </p>
+
+  <div class="mt-10 grid w-full max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-8">
+    {
+      productPanels.map(({ product, examples }) => (
+        <div
+          data-product-panel={product.id}
+          class="relative flex flex-col gap-5 rounded-lg border border-lime-300/40 p-5 md:p-6"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex min-w-0 items-center gap-3">
+              <img
+                src={product.logoDark}
+                alt={product.name}
+                class="h-8 w-auto max-w-[140px] object-contain"
+              />
+              <div class="min-w-0">
+                <h3 class="text-lg font-bold text-lime-300">{product.name}</h3>
+                <p class="text-xs text-white/60">{product.tagline}</p>
+              </div>
+            </div>
+            <div class="flex shrink-0 items-center gap-1.5">
+              <a
+                href={product.docsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded border border-lime-300/40 px-2 py-0.5 text-[10px] uppercase tracking-wide text-lime-300 transition hover:bg-lime-300 hover:text-black"
+              >
+                Docs
+              </a>
+              <a
+                href={product.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${product.name} on GitHub`}
+                class="inline-flex items-center justify-center rounded border border-lime-300/40 p-1 text-lime-300 transition hover:bg-lime-300 hover:text-black"
+              >
+                <GithubIcon class="size-3.5 fill-current" />
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="text-xs uppercase tracking-wide text-lime-300/80">
+              Install
+            </span>
+            <CodeSnippet
+              code={product.install}
+              filename="terminal"
+              language="bash"
+              compact
+            />
+          </div>
+
+          <div
+            class="flex flex-wrap gap-2"
+            role="tablist"
+            aria-label={`${product.name} examples`}
+          >
+            {examples.map((example, exampleIndex) => (
+              <button
+                type="button"
+                role="tab"
+                data-example-tab={example.id}
+                data-product={product.id}
+                aria-selected={exampleIndex === 0 ? "true" : "false"}
+                class:list={[
+                  "rounded-full border px-4 py-1.5 text-sm transition",
+                  exampleIndex === 0
+                    ? "border-lime-300 bg-lime-300/15 text-lime-300"
+                    : "border-white/20 text-white/70 hover:border-lime-300/50 hover:text-white",
+                ]}
+              >
+                {example.title}
+              </button>
+            ))}
+          </div>
+
+          <div class="min-h-[260px]">
+            {examples.map((example, exampleIndex) => (
+              <CodeSnippet
+                exampleId={example.id}
+                title={example.description}
+                language={example.language}
+                filename={example.filename}
+                code={example.code}
+                docsUrl={example.docsUrl}
+                hidden={exampleIndex !== 0}
+              />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<script>
+  function setActiveExample(productId: string, exampleId: string) {
+    const panel = document.querySelector(
+      `[data-product-panel="${productId}"]`,
+    );
+    if (!panel) return;
+
+    panel.querySelectorAll("[data-example-tab]").forEach((tab) => {
+      const active = tab.getAttribute("data-example-tab") === exampleId;
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.classList.toggle("border-lime-300", active);
+      tab.classList.toggle("bg-lime-300/15", active);
+      tab.classList.toggle("text-lime-300", active);
+      tab.classList.toggle("border-white/20", !active);
+      tab.classList.toggle("text-white/70", !active);
+    });
+
+    panel.querySelectorAll("[data-code-example]").forEach((example) => {
+      const active = example.getAttribute("data-code-example") === exampleId;
+      example.classList.toggle("hidden", !active);
+    });
+  }
+
+  function initCodeTabs() {
+    document.querySelectorAll("[data-example-tab]").forEach((tab) => {
+      if (tab.dataset.exampleBound) return;
+      tab.dataset.exampleBound = "true";
+      tab.addEventListener("click", () => {
+        const exampleId = tab.getAttribute("data-example-tab");
+        const productId = tab.getAttribute("data-product");
+        if (exampleId && productId) setActiveExample(productId, exampleId);
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCodeTabs);
+  } else {
+    initCodeTabs();
+  }
+  document.addEventListener("astro:page-load", initCodeTabs);
+</script>

@@ -1,0 +1,43 @@
+---
+import Section from "../components/Section.astro";
+import ComputerOldElectronicsIcon from "../assets/icons/computer-old-electronics.svg";
+import HandsCrossedIcon from "../assets/icons/hand-cross-finger-heart.svg";
+import UIDesignWebsiteIcon from "../assets/icons/ui-design-website.svg";
+
+const data = [
+  {
+    icon: ComputerOldElectronicsIcon,
+    line1: "Lightweight, easy-to-use",
+    line2: "Python libraries",
+  },
+  {
+    icon: HandsCrossedIcon,
+    line1: "Open source, free &",
+    line2: "community driven",
+  },
+  {
+    icon: UIDesignWebsiteIcon,
+    line1: "Effective",
+    line2: "visual outputs",
+  },
+];
+---
+
+<Section id="about" invert>
+  <h1 class="text-3xl font-bold p-4 uppercase">What we are</h1>
+  <div class="mx-auto grid w-full max-w-5xl grid-cols-1 place-items-center gap-12 md:grid-cols-3 md:gap-8">
+    {
+      data.map((item) => (
+        <div class="flex w-full max-w-[11rem] flex-col items-center text-center">
+          <div class="bg-black rounded-full size-40 flex items-center justify-center">
+            <item.icon class="size-23 mx-auto" />
+          </div>
+          <h2 class="text-xl font-bold">{item.line1}</h2>
+          <p class="prose max-w-[12rem] text-black uppercase font-bold">
+            {item.line2}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
