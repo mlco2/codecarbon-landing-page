@@ -1,49 +1,86 @@
 ---
 import SquareGridIcon from "./SquareGridIcon.astro";
+import PageContainer from "./PageContainer.astro";
 import GithubIcon from "../assets/icons/social/Github.svg";
 import LinkedinIcon from "../assets/icons/social/Linkedin.svg";
 import YoutubeIcon from "../assets/icons/social/Youtube.svg";
 import {
+  DOCS_URL,
+  ECOLOGITS_DOCS_URL,
   GITHUB_CODECARBON_URL,
+  GITHUB_ECOLOGITS_URL,
   LINKEDIN_URL,
-  YOUTUBE_URL
+  MLCO2_GITHUB_URL,
+  NGO_URL,
+  YOUTUBE_URL,
 } from "../consts";
 ---
 
-<div class="flex gap-2">
-  <SquareGridIcon class="size-6" length="200" />
-</div>
-<div class="flex items-center justify-center gap-3 mx-4 pt-8">
-  <a
-    href={GITHUB_CODECARBON_URL}
-    target="_blank"
-    rel="noopener"
-    aria-label="GitHub"
-  >
-    <GithubIcon class="size-10" />
-  </a>
-  <a
-    href={LINKEDIN_URL}
-    target="_blank"
-    rel="noopener"
-    aria-label="LinkedIn"
-  >
-    <LinkedinIcon class="size-10" />
-  </a>
-  <a
-    href={YOUTUBE_URL}
-    target="_blank"
-    rel="noopener"
-    aria-label="YouTube"
-  >
-    <YoutubeIcon class="size-10" />
-  </a>
-</div>
-<div class="mx-auto flex items-center p-4 justify-center gap-2">
-  <p class="text-sm min-w-[340px]">
-    &copy; 2025 Codecarbon. All rights reserved.
-  </p>
-</div>
-<!-- <div class="mx-auto flex items-center gap-2">
-  <SquareGridIcon class="size-6" length="500" />
-</div> -->
+<footer class="w-full py-8">
+  <PageContainer class="flex flex-col items-center gap-2">
+    <SquareGridIcon class="size-6" length="200" />
+    <div class="flex flex-wrap items-center justify-center gap-4 pt-4 text-sm">
+      <a href={DOCS_URL} target="_blank" rel="noopener" class="hover:text-lime-600"
+        >CodeCarbon docs</a
+      >
+      <span class="text-white/40">·</span>
+      <a
+        href={ECOLOGITS_DOCS_URL}
+        target="_blank"
+        rel="noopener"
+        class="hover:text-lime-600">EcoLogits docs</a
+      >
+      <span class="text-white/40">·</span>
+      <a href={NGO_URL} target="_blank" rel="noopener" class="hover:text-lime-600"
+        >Code Carbon NGO</a
+      >
+    </div>
+    <div class="flex items-center justify-center gap-3 pt-4">
+      <a
+        href={MLCO2_GITHUB_URL}
+        target="_blank"
+        rel="noopener"
+        aria-label="mlco2 on GitHub"
+      >
+        <GithubIcon class="size-10" />
+      </a>
+      <a
+        href={GITHUB_CODECARBON_URL}
+        target="_blank"
+        rel="noopener"
+        aria-label="CodeCarbon on GitHub"
+        class="text-xs hover:text-lime-600"
+      >
+        CC
+      </a>
+      <a
+        href={GITHUB_ECOLOGITS_URL}
+        target="_blank"
+        rel="noopener"
+        aria-label="EcoLogits on GitHub"
+        class="text-xs hover:text-lime-600"
+      >
+        EL
+      </a>
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        rel="noopener"
+        aria-label="LinkedIn"
+      >
+        <LinkedinIcon class="size-10" />
+      </a>
+      <a
+        href={YOUTUBE_URL}
+        target="_blank"
+        rel="noopener"
+        aria-label="YouTube"
+      >
+        <YoutubeIcon class="size-10" />
+      </a>
+    </div>
+    <p class="pt-4 text-center text-sm">
+      &copy; 2025 Code Carbon. Open-source tools by volunteers.
+    </p>
+  </PageContainer>
+</footer>

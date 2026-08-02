@@ -1,0 +1,163 @@
+---
+import Section from "../components/Section.astro";
+import Button from "../components/Button.astro";
+import {
+  communityIntegrations,
+  products,
+  relatedTools,
+  type CommunityIntegration,
+  type RelatedTool,
+} from "../content/ecosystem";
+import { MLCO2_GITHUB_URL } from "../consts";
+
+const productLabels = Object.fromEntries(
+  products.map((product) => [product.id, product.name]),
+) as Record<string, string>;
+
+const productLogos = Object.fromEntries(
+  products.map((product) => [product.id, product.logoDark]),
+) as Record<string, string>;
+
+const codecarbonTools = relatedTools.filter((t) => t.product === "codecarbon");
+const ecologitsTools = relatedTools.filter((t) => t.product === "ecologits");
+
+function toolImageClasses(item: RelatedTool | CommunityIntegration) {
+  const fit = item.imageFit ?? "cover";
+  return [
+    "h-44 w-full border-b border-lime-300/20 bg-black/80",
+    fit === "contain" ? "object-contain p-6" : "object-cover object-top",
+  ];
+}
+---
+
+<Section id="tools">
+  <h2 class="text-3xl font-bold uppercase text-white">
+    Related tools &amp; integrations
+  </h2>
+  <p class="prose max-w-3xl text-center text-white">
+    First-party projects from mlco2, plus community-built extensions on our open
+    APIs. Each tool belongs to CodeCarbon or EcoLogits — pick the stack you use.
+  </p>
+
+  {
+    [
+      { id: "codecarbon", tools: codecarbonTools },
+      { id: "ecologits", tools: ecologitsTools },
+    ].map(({ id, tools }) => {
+      const product = products.find((p) => p.id === id)!;
+      return (
+        <div class="mt-10 w-full max-w-6xl">
+          <div class="mb-5 flex items-center gap-3">
+            <img
+              src={product.logoDark}
+              alt=""
+              class="h-7 w-auto max-w-[120px] object-contain"
+            />
+            <h3 class="text-xl font-bold text-lime-300">
+              {productLabels[id]} tools
+            </h3>
+          </div>
+          <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {tools.map((tool) => (
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex flex-col overflow-hidden rounded-lg border-2 border-lime-300/40 bg-black/40 transition hover:border-lime-300"
+              >
+                {tool.imageUrl ? (
+                  <img
+                    src={tool.imageUrl}
+                    alt={tool.imageAlt ?? tool.name}
+                    class:list={toolImageClasses(tool)}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="flex h-44 items-center justify-center border-b border-lime-300/20 bg-black/80">
+                    <img
+                      src={productLogos[tool.product]}
+                      alt=""
+                      class="h-14 max-w-[70%] object-contain"
+                    />
+                  </div>
+                )}
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h4 class="font-bold text-white">{tool.name}</h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="rounded border border-lime-300/50 px-2 py-0.5 text-[10px] uppercase tracking-wide text-lime-300">
+                        {productLabels[tool.product]}
+                      </span>
+                      {tool.badge && (
+                        <span class="rounded bg-lime-300/15 px-2 py-0.5 text-[10px] uppercase tracking-wide text-lime-300">
+                          {tool.badge}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <p class="flex-1 text-sm text-white/80">{tool.description}</p>
+                  <span class="text-sm font-bold text-lime-300 group-hover:underline">
+                    Open →
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      );
+    })
+  }
+
+  <div class="mt-14 w-full max-w-6xl">
+    <h3 class="text-xl font-bold text-lime-300">Community integrations</h3>
+    <p class="prose mt-2 max-w-3xl text-sm text-white/80">
+      Independent projects built on EcoLogits APIs — not official releases, but
+      we're glad they exist.
+    </p>
+    <div class="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+      {
+        communityIntegrations.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col overflow-hidden rounded-lg border border-lime-300/30 bg-black/30 transition hover:border-lime-300/60"
+          >
+            {item.imageUrl ? (
+              <img
+                src={item.imageUrl}
+                alt={item.imageAlt ?? item.name}
+                class:list={toolImageClasses(item)}
+                loading="lazy"
+              />
+            ) : (
+              <div class="flex h-44 items-center justify-center border-b border-lime-300/20 bg-black/80">
+                <img
+                  src={productLogos[item.product]}
+                  alt=""
+                  class="h-14 max-w-[70%] object-contain"
+                />
+              </div>
+            )}
+            <div class="flex flex-col gap-2 p-4">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-bold text-white group-hover:text-lime-300">
+                  {item.name}
+                </span>
+                <span class="text-sm text-white/60">— {item.author}</span>
+                <span class="rounded border border-lime-300/50 px-2 py-0.5 text-[10px] uppercase tracking-wide text-lime-300">
+                  {productLabels[item.product]}
+                </span>
+              </div>
+              <p class="text-sm text-white/80">{item.description}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="mt-10">
+    <Button href={MLCO2_GITHUB_URL}>All mlco2 projects on GitHub</Button>
+  </div>
+</Section>

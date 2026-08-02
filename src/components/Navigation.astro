@@ -4,68 +4,78 @@ import CodecarbonLogo from "../assets/codecarbon-logo.svg";
 import GithubIcon from "../assets/icons/social/Github.svg";
 import Button from "./Button.astro";
 import Hamburguer from "./Hamburguer.astro";
+import PageContainer from "./PageContainer.astro";
 import {
-  GITHUB_CODECARBON_URL,
   DASHBOARD_API_URL,
   DISCORD_URL,
+  MLCO2_GITHUB_URL,
 } from "../consts";
 const BASE_URL = import.meta.env.BASE_URL;
 const sections = [
+  { title: "Libraries", href: `${BASE_URL}#code` },
+  { title: "Projects", href: `${BASE_URL}#tools` },
   { title: "Blog", href: `${BASE_URL}blog` },
-  { title: "About", href: `${BASE_URL}#about` },
-  { title: "How it works", href: `${BASE_URL}#how-it-works` },
-  { title: "Call to action", href: `${BASE_URL}#call-to-action` },
   { title: "Team", href: `${BASE_URL}#team` },
-  { title: "Contact us", href: DISCORD_URL },
+  { title: "Contact", href: DISCORD_URL, external: true },
 ];
 ---
 
-<div class="mx-auto mb-4 md:mb-6 max-w-full items-center justify-center">
-  <div class="max-w-[1440px] mx-auto">
-    <nav
-      class="flex flex-row items-center justify-between p-4 gap-x-4 w-full relative"
-    >
-      <a href={BASE_URL} class="mx-4"><CodecarbonLogo /></a>
-      <!-- Hamburger button for mobile -->
-      <Hamburguer />
-      <!-- Navigation list -->
+<header
+  class="fixed top-0 right-0 left-0 z-50 border-b border-lime-300/20 bg-black/90 backdrop-blur-md"
+>
+  <PageContainer>
+    <nav class="relative flex h-14 items-center justify-between gap-4 md:h-16">
+      <a
+        href={BASE_URL}
+        class="shrink-0 transition-opacity hover:opacity-80"
+        aria-label="Home"
+      >
+        <CodecarbonLogo class="h-8 w-auto md:h-9" />
+      </a>
+
       <ul
         id="nav-list"
-        class="flex-col md:flex md:flex-row flex-wrap items-center justify-between w-auto max-w-full shrink min-w-0 hidden md:static absolute top-16 left-0 right-0 bg-black md:bg-transparent z-10 md:z-auto md:gap-x-4 p-4 md:p-0"
+        class="absolute top-full right-0 left-0 z-20 hidden flex-col gap-0.5 border-b border-lime-300/20 bg-black/95 p-3 backdrop-blur-md md:static md:flex md:flex-1 md:flex-row md:items-center md:justify-center md:gap-1 md:border-0 md:bg-transparent md:p-0"
       >
         {
           sections.map((section) => (
-            <li class="mx-4 hover:bg-lime-600 rounded p-2">
-              <a href={section.href}>{section.title}</a>
+            <li>
+              <a
+                href={section.href}
+                target={section.external ? "_blank" : undefined}
+                rel={section.external ? "noopener noreferrer" : undefined}
+                class="block rounded-md px-3 py-2 text-sm text-white/75 transition-colors hover:bg-lime-300/10 hover:text-lime-300 md:px-4 md:py-1.5"
+              >
+                {section.title}
+              </a>
             </li>
           ))
         }
-        <li class="mx-4 md:hidden">
-          <Button href={DASHBOARD_API_URL}>Sign in</Button>
+        <li class="mt-2 border-t border-lime-300/15 pt-2 md:hidden">
+          <Button href={DASHBOARD_API_URL}>Dashboard</Button>
         </li>
       </ul>
-      <!-- GitHub icon and Sign in button group -->
-      <div class="flex items-center gap-8">
+
+      <div class="flex shrink-0 items-center gap-2 md:gap-3">
         <div class="hidden md:block">
-          <Button href={DASHBOARD_API_URL}>Sign in</Button>
+          <Button href={DASHBOARD_API_URL}>Dashboard</Button>
         </div>
         <a
-          href={GITHUB_CODECARBON_URL}
+          href={MLCO2_GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden md:block hover:opacity-80 transition-opacity"
-          aria-label="GitHub Repository"
+          class="hidden md:inline-flex items-center justify-center rounded border border-lime-300/40 p-2 text-lime-300 transition hover:bg-lime-300 hover:text-black"
+          aria-label="mlco2 on GitHub"
         >
-          <GithubIcon class="w-6 h-6" />
+          <GithubIcon class="size-4 fill-current" />
         </a>
+        <Hamburguer />
       </div>
     </nav>
-  </div>
-  <hr class="m-0 border-lime-300 border-2" />
-</div>
+  </PageContainer>
+</header>
 <ClientRouter />
 <script is:inline>
-  // Function to toggle navigation list visibility
   function initNavToggle() {
     const navToggle = document.getElementById("nav-toggle");
     const navList = document.getElementById("nav-list");
@@ -77,13 +87,11 @@ const sections = [
     }
   }
 
-  // Run on initial load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initNavToggle);
   } else {
     initNavToggle();
   }
 
-  // Run after client-side navigation
   document.addEventListener("astro:page-load", initNavToggle);
 </script>

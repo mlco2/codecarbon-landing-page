@@ -2,16 +2,19 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import BlogTags from "../components/BlogTags.astro";
+import PageContainer from "../components/PageContainer.astro";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
 ---
 
 <Layout title={title} description={description} image={heroImage}>
-  <main class="w-full max-w-[1040px] px-4 m-0">
+  <PageContainer class="py-6 md:py-10">
     <article>
       <div class="w-full">
         {
@@ -41,6 +44,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           <h1 class="m-0 mt-3 text-3xl md:text-5xl leading-tight tracking-tight text-lime-300">
             {title}
           </h1>
+          <BlogTags tags={tags} class="mt-4" />
           <hr class="mt-5 border-lime-300/20" />
         </header>
         <Prose>
@@ -48,5 +52,5 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         </Prose>
       </div>
     </article>
-  </main>
+  </PageContainer>
 </Layout>

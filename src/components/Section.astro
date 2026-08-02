@@ -1,11 +1,20 @@
 ---
-const { id, invert } = Astro.props;
-// invert is used to select if the section is with white text or black text
+import PageContainer from "./PageContainer.astro";
+
+const { id, invert, compact } = Astro.props;
+
+const padding = compact ? "py-6 lg:py-14" : "py-10 lg:py-20";
 ---
 
-<div
-  class=`flex flex-col items-center justify-center gap-2 ${invert ? "bg-lime-300 text-black" : "text-white "} pt-10 pb-10 px-5 lg:p-20 w-screen`
+<section
+  class:list={[
+    "w-full",
+    invert ? "bg-lime-300 text-black" : "text-white",
+    padding,
+  ]}
   id={id}
 >
-  <slot />
-</div>
+  <PageContainer class="flex flex-col items-center gap-2">
+    <slot />
+  </PageContainer>
+</section>

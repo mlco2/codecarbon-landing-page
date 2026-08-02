@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+
 import { glob } from "astro/loaders";
 
 const blog = defineCollection({
@@ -13,6 +14,7 @@ const blog = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
+      tags: z.array(z.enum(["codecarbon", "ecologits"])).default([]),
     }),
 });
 

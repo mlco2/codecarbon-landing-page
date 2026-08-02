@@ -4,6 +4,7 @@ description: "CodeCarbon received a grant from Mozilla Foundation"
 pubDate: "Nov 09 2025"
 updatedDate: "Nov 10 2025"
 heroImage: "../../assets/images/2025-11-07-MozFest-Logo_GroupShot.jpeg"
+tags: ["codecarbon"]
 ---
 
 CodeCarbon is proud to be part of the 🚀 **Mozilla Foundation Incubator** 🚀

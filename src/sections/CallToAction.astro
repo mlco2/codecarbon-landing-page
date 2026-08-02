@@ -3,24 +3,26 @@ import Section from "../components/Section.astro";
 import AlertIcon from "../assets/icons/interface-essential-alert-circle-1.svg";
 import CodingIcon from "../assets/icons/coding-apps-websites-programming-browser.svg";
 import RobotIcon from "../assets/icons/technology-robot-ai-signal-1.svg";
+import { DISCORD_URL, NGO_URL } from "../consts";
+
 const data = [
   {
     icon: AlertIcon,
-    title: "Use it!",
+    title: "Use it",
     description:
-      "We look forward to developers and researchers using the tool and sharing their feedback",
+      "Track local compute with CodeCarbon, GenAI API calls with EcoLogits — or both if your stack mixes them.",
   },
   {
     icon: CodingIcon,
-    title: "Contribute!",
+    title: "Contribute",
     description:
-      "We look forward to developers contributing to CodeCarbon development <3<3<3",
+      "Issues, docs, and methodology feedback welcome on GitHub. Most maintenance is volunteer work.",
   },
   {
     icon: RobotIcon,
-    title: "Spread the love!",
+    title: "Spread the word",
     description:
-      "Spread the word about CodeCarbon among your colleagues, peers, conferences, and developer forums",
+      "Share the tools with colleagues, at conferences, and in your developer communities.",
   },
 ];
 ---
@@ -28,18 +30,21 @@ const data = [
 <Section id="call-to-action" invert>
   <div class="flex items-center justify-center gap-4">
     <AlertIcon />
-    <h1 class="text-4xl font-bold uppercase">Call to Action</h1>
+    <h2 class="text-4xl font-bold uppercase">Get involved</h2>
     <AlertIcon />
   </div>
-  <h1 class="text-3xl font-bold uppercase p-4">
-    Use, contribute and spread the word!
-  </h1>
-  <div class="justify-between flex flex-col md:flex-row min-w-3xl gap-4">
+  <p class="prose max-w-2xl text-center">
+    Use the tools, contribute on GitHub, or support the
+    <a href={NGO_URL} target="_blank" rel="noopener noreferrer" class="underline"
+      >Code Carbon</a
+    > non-profit.
+  </p>
+  <div class="justify-between flex flex-col md:flex-row min-w-3xl gap-4 mt-6">
     {
       data.map((item) => (
         <div class="flex flex-col gap-4 items-center">
           <item.icon class="size-40 mx-auto" />
-          <h2 class="text-3xl font-bold text-center uppercase">{item.title}</h2>
+          <h3 class="text-3xl font-bold text-center uppercase">{item.title}</h3>
           <p class="prose text-black max-w-[400px] text-center">
             {item.description}
           </p>
@@ -47,4 +52,12 @@ const data = [
       ))
     }
   </div>
+  <a
+    href={DISCORD_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mt-8 font-bold underline hover:opacity-70"
+  >
+    Join us on Discord →
+  </a>
 </Section>
