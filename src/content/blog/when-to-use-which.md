@@ -1,6 +1,6 @@
 ---
 title: "When to use CodeCarbon vs EcoLogits"
-description: "Choose the right mlco2 tool — local compute emissions with CodeCarbon, GenAI API impacts with EcoLogits."
+description: "Choose the right mlco2 tool — local compute emissions with CodeCarbon, GenAI API emissions with EcoLogits."
 pubDate: "Jul 29 2026"
 tags: ["codecarbon", "ecologits"]
 ---
