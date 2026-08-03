@@ -84,7 +84,7 @@ export const contributors: Contributor[] = [
   },
   {
     name: "David Berenstein",
-    job: "ML Engineer",
+    job: "ML & DevRel",
     organisation: "mlco2",
     img_path: "https://avatars.githubusercontent.com/u/25269220",
     github_url: "https://github.com/davidberenstein1957",
