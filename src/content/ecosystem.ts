@@ -72,7 +72,7 @@ export const products: Product[] = [
   {
     id: "ecologits",
     name: "EcoLogits",
-    tagline: "GenAI API impacts",
+    tagline: "GenAI API emissions",
     description:
       "Estimate energy and environmental impacts when you call third-party GenAI APIs — OpenAI, Anthropic, Mistral, Google, and more. Attaches impact data to provider SDK responses.",
     install: "pip install ecologits",
