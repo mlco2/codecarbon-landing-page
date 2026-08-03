@@ -13,87 +13,88 @@ import { contributors as contributorsData } from "../content/contributors";
 ---
 
 <Section id="team">
-  <div class="flex flex-col md:flex-row">
-    <div class="w-full md:w-2/3 order-2 md:order-1">
-      <h1 class="text-4xl font-bold text-white uppercase max-w-xl">
+  <div class="flex w-full flex-col items-center gap-10">
+    <div class="max-w-3xl text-center">
+      <h1 class="text-4xl font-bold uppercase text-white">
         Maintained by volunteers across the mlco2 ecosystem
       </h1>
-      <p class="prose text-white text-lg">
+      <p class="prose mt-4 text-lg text-white">
         CodeCarbon and EcoLogits are built by researchers, engineers, and
         sustainability practitioners who contribute in their spare time.
       </p>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 md:pr-30"
-      >
-        {
-          contributorsData.map((contributor) => (
-            <div class="flex flex-col items-center text-center">
-              <CrownIcon class="size-8 mb-2 text-lime-300" />
-              {contributor.github_url ? (
+    </div>
+
+    <div
+      class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
+      {
+        contributorsData.map((contributor) => (
+          <div class="flex flex-col items-center text-center">
+            <CrownIcon class="mb-2 size-8 text-lime-300" />
+            {contributor.github_url ? (
+              <a
+                href={contributor.github_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-opacity hover:opacity-80"
+              >
+                <img
+                  src={contributor.img_path}
+                  alt={contributor.name}
+                  class="mb-2 h-24 w-24 rounded-full grayscale"
+                />
+              </a>
+            ) : (
+              <img
+                src={contributor.img_path}
+                alt={contributor.name}
+                class="mb-2 h-24 w-24 rounded-full grayscale"
+              />
+            )}
+            {contributor.github_url ? (
+              <h2 class="text-xl font-bold text-lime-300">
                 <a
                   href={contributor.github_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="transition-opacity hover:opacity-80"
+                  class="hover:underline"
                 >
-                  <img
-                    src={contributor.img_path}
-                    alt={contributor.name}
-                    class="rounded-full w-24 h-24 mb-2 grayscale"
-                  />
-                </a>
-              ) : (
-                <img
-                  src={contributor.img_path}
-                  alt={contributor.name}
-                  class="rounded-full w-24 h-24 mb-2 grayscale"
-                />
-              )}
-              {contributor.github_url ? (
-                <h2 class="text-xl font-bold text-lime-300">
-                  <a
-                    href={contributor.github_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:underline"
-                  >
-                    {contributor.name}
-                  </a>
-                </h2>
-              ) : (
-                <h2 class="text-xl font-bold text-lime-300">
                   {contributor.name}
-                </h2>
-              )}
-              <p class="text-lime-300">{contributor.job}</p>
-              {contributor.organisation && (
-                <p class="text-lime-300">{contributor.organisation}</p>
-              )}
-              <BlogTags tags={contributor.products} class="mt-2 justify-center" />
-            </div>
-          ))
-        }
-      </div>
-      <div class="pt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button href={`${GITHUB_CODECARBON_URL}/graphs/contributors`}>
-          <div class="flex items-center gap-2">
-            <GithubIcon class="size-6 fill-black" /> CodeCarbon contributors
+                </a>
+              </h2>
+            ) : (
+              <h2 class="text-xl font-bold text-lime-300">
+                {contributor.name}
+              </h2>
+            )}
+            <p class="text-lime-300">{contributor.job}</p>
+            {contributor.organisation && (
+              <p class="text-lime-300">{contributor.organisation}</p>
+            )}
+            <BlogTags tags={contributor.products} class="mt-2 justify-center" />
           </div>
-        </Button>
-        <Button href={`${GITHUB_ECOLOGITS_URL}/graphs/contributors`}>
-          <div class="flex items-center gap-2">
-            <GithubIcon class="size-6 fill-black" /> EcoLogits contributors
-          </div>
-        </Button>
-      </div>
+        ))
+      }
     </div>
-    <div
-      class="w-full md:w-1/3 flex flex-col justify-center h-full pb-10 pt-10 md:pt-40 items-center gap-2 order-1 md:order-2"
-    >
-      <SpreadLoveIcon class="w-60 lg:w-85 mx-auto" />
-      <h1 class="text-4xl font-bold text-white uppercase max-w-lg text-center">
+
+    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <Button href={`${GITHUB_CODECARBON_URL}/graphs/contributors`}>
+        <div class="flex items-center gap-2">
+          <GithubIcon class="size-6 fill-black" /> CodeCarbon contributors
+        </div>
+      </Button>
+      <Button href={`${GITHUB_ECOLOGITS_URL}/graphs/contributors`}>
+        <div class="flex items-center gap-2">
+          <GithubIcon class="size-6 fill-black" /> EcoLogits contributors
+        </div>
+      </Button>
+    </div>
+
+    <div class="flex max-w-xl flex-col items-center gap-4 pt-4 text-center">
+      <SpreadLoveIcon class="mx-auto w-60 lg:w-85" />
+      <h2 class="text-4xl font-bold uppercase text-white">
         Want to contribute?
-      </h1>
+      </h2>
       <p class="prose text-white">Join us and help improve the ecosystem.</p>
       <Button
         href="https://github.com/mlco2/codecarbon/blob/master/docs/how-to/contributing.md"

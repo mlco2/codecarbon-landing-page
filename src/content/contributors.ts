@@ -27,7 +27,6 @@ export const contributors: Contributor[] = [
   {
     name: "Sasha Luccioni",
     job: "Researcher",
-    organisation: "Hugging Face",
     img_path: "/assets/contributors/img/sascha.jpg",
     products: ["codecarbon"],
   },
@@ -85,7 +84,6 @@ export const contributors: Contributor[] = [
   {
     name: "David Berenstein",
     job: "ML & DevRel",
-    organisation: "mlco2",
     img_path: "https://avatars.githubusercontent.com/u/25269220",
     github_url: "https://github.com/davidberenstein1957",
     products: ["codecarbon", "ecologits"],
