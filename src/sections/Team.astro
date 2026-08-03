@@ -1,6 +1,5 @@
 ---
 import Section from "../components/Section.astro";
-import BlogTags from "../components/BlogTags.astro";
 import SpreadLoveIcon from "../assets/icons/Spread-love.svg";
 import CrownIcon from "../assets/icons/interface-essential-crown.svg";
 import GithubIcon from "../assets/icons/social/Github.svg";
@@ -71,7 +70,6 @@ import { contributors as contributorsData } from "../content/contributors";
             {contributor.organisation && (
               <p class="text-lime-300">{contributor.organisation}</p>
             )}
-            <BlogTags tags={contributor.products} class="mt-2 justify-center" />
           </div>
         ))
       }
