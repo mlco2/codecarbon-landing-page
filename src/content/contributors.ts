@@ -47,7 +47,7 @@ export const contributors: Contributor[] = [
     name: "Iñigo Imaz",
     job: "Software Developer",
     img_path: "/assets/contributors/img/inigo.jpg",
-    github_url: "https://github.com/inigoimaz",
+    github_url: "https://github.com/inimaz",
   },
   {
     name: "Luis Blanche",
