@@ -1,24 +1,15 @@
 import { createHighlighter, type Highlighter } from "shiki";
 
-declare global {
-  var __mlco2ShikiHighlighter: Highlighter | undefined;
-  var __mlco2ShikiHighlighterPromise: Promise<Highlighter> | undefined;
-}
+let highlighter: Highlighter | null = null;
 
 async function getHighlighter(): Promise<Highlighter> {
-  if (globalThis.__mlco2ShikiHighlighter) {
-    return globalThis.__mlco2ShikiHighlighter;
+  if (!highlighter) {
+    highlighter = await createHighlighter({
+      themes: ["one-dark-pro"],
+      langs: ["python", "bash", "shell"],
+    });
   }
-
-  globalThis.__mlco2ShikiHighlighterPromise ??= createHighlighter({
-    themes: ["one-dark-pro"],
-    langs: ["python", "bash", "shell"],
-  }).then((instance) => {
-    globalThis.__mlco2ShikiHighlighter = instance;
-    return instance;
-  });
-
-  return globalThis.__mlco2ShikiHighlighterPromise;
+  return highlighter;
 }
 
 const languageMap: Record<string, string> = {

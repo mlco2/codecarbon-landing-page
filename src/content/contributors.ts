@@ -10,36 +10,56 @@ const ContributorSchema = z.object({
 
 export type Contributor = z.infer<typeof ContributorSchema>;
 
+/*
+Adding a new contributor :
+You are in front of an array, you can add a contributor by following the scheme.
+Copy/paste the example, and replace with your own information.
+
+    {
+        name: "Your_data_here",
+        job : "Your_data_here",
+        organisation: "Your_data_here",
+        img_path: "/assets/contributors/img/someone.jpeg"
+    },
+*/
+
 export const contributors: Contributor[] = [
   {
     name: "Benoît Courty",
     job: "Data Scientist",
     img_path: "/assets/contributors/img/Benoit_Courty.jpg",
+    github_url: "https://github.com/benoit-cty",
   },
   {
     name: "Amine Saboni",
     job: "Deep Learning Engineer",
     img_path: "/assets/contributors/img/Amine_Saboni.jpg",
+    github_url: "https://github.com/SaboniAmine",
   },
   {
     name: "Sasha Luccioni",
     job: "Researcher",
+    organisation: "Hugging Face",
     img_path: "/assets/contributors/img/sascha.jpg",
+    github_url: "https://github.com/sashavor",
   },
   {
     name: "Iñigo Imaz",
     job: "Software Developer",
     img_path: "/assets/contributors/img/inigo.jpg",
+    github_url: "https://github.com/inigoimaz",
   },
   {
     name: "Luis Blanche",
     job: "Machine Learning Engineer",
     img_path: "https://avatars.githubusercontent.com/u/18741447",
+    github_url: "https://github.com/LuisBlanche",
   },
   {
     name: "Patrick",
     job: "Software developer",
     img_path: "https://avatars.githubusercontent.com/u/6672288",
+    github_url: "https://github.com/prmths128",
   },
   {
     name: "Samuel Rincé",
@@ -51,6 +71,7 @@ export const contributors: Contributor[] = [
     name: "Claire Saignol",
     job: "Sustainability Manager",
     img_path: "https://avatars.githubusercontent.com/u/280668843",
+    github_url: "https://github.com/Claire6675",
   },
   {
     name: "Adrien Banse",
