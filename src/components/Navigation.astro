@@ -75,23 +75,15 @@ const sections = [
   </PageContainer>
 </header>
 <ClientRouter />
-<script is:inline>
-  function initNavToggle() {
+<script>
+  document.addEventListener("astro:page-load", () => {
     const navToggle = document.getElementById("nav-toggle");
     const navList = document.getElementById("nav-list");
-    if (navToggle && navList) {
-      navToggle.addEventListener("click", function () {
-        navList.classList.toggle("hidden");
-        navList.classList.toggle("flex");
-      });
-    }
-  }
+    if (!navToggle || !navList) return;
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initNavToggle);
-  } else {
-    initNavToggle();
-  }
-
-  document.addEventListener("astro:page-load", initNavToggle);
+    navToggle.addEventListener("click", () => {
+      const openNav = navList.classList.toggle("hidden") === false;
+      navList.classList.toggle("flex", openNav);
+    });
+  });
 </script>
